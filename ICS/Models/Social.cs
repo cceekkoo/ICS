@@ -11,10 +11,12 @@ namespace ICS.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Social
     {
         public int ID { get; set; }
+        [Required(ErrorMessage = "***")]
         public string Url { get; set; }
         public string image { get; set; }
     }

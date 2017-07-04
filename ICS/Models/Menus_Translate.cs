@@ -11,10 +11,12 @@ namespace ICS.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Menus_Translate
     {
         public int ID { get; set; }
+        [Required(ErrorMessage = "***")]
         public string Text { get; set; }
         public int Value_ID { get; set; }
         public int Language_ID { get; set; }

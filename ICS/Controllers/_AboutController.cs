@@ -42,55 +42,7 @@ namespace ICS.Controllers
             ViewBag.Language_ID = new SelectList(db.Languages, "ID", "Language_Short");
             return View(aboutAdmin);
         }
-
-        public ActionResult Create()
-        {
-            return RedirectToAction("", "_About");
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        [ValidateInput(false)]
-        public ActionResult Create([Bind(Include = "ID,Title,Text")]About_Translate about_Translate, HttpPostedFileBase file)
-        {
-            var dbContextTransaction = db.Database.BeginTransaction();
-            try
-            {
-                customMethods.ImageUploadValidation(ModelState, file, "about_Translate.About.image");
-
-                if (ModelState.IsValid)
-                {
-                    about_Translate.About = new About();
-                    about_Translate.About.image = hash.MD5(string.Format("{0:ddMMyyyyhhmmss}", DateTime.Now))
-                        .Replace("-", "").ToLower() + ".jpg";
-
-                    about_Translate.Text = about_Translate.Text == null ? "" : about_Translate.Text;
-                    about_Translate.Language_ID = db.Languages.FirstOrDefault().ID;
-                    about_Translate.Value_ID = about_Translate.About.ID;
-                    db.About_Translate.Add(about_Translate);
-                    db.SaveChanges();
-
-                    customMethods.ImageUpload(file, about_Translate.About.image);
-
-                    dbContextTransaction.Commit();
-                    return RedirectToAction("Index");
-                }
-
-                dbContextTransaction.Rollback();
-                aboutAdmin.about_Translate = about_Translate;
-                ViewBag.ShowModal = "AddModal";
-                return View("Index", aboutAdmin);
-            }
-            catch
-            {
-                dbContextTransaction.Rollback();
-                aboutAdmin.about_Translate = about_Translate;
-                ViewBag.Message = "Səhv aşkarlandı. Bir daha yoxlayın";
-                ViewBag.ShowModal = "AddModal";
-                return View("Index", aboutAdmin);
-            }
-        }
-
+        
         public ActionResult CreateTranslate()
         {
             return RedirectToAction("", "_About");
@@ -176,7 +128,6 @@ namespace ICS.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [ValidateInput(false)]
         public ActionResult ImageChange(int? id, HttpPostedFileBase file)
         {
             var dbContextTransaction = db.Database.BeginTransaction();
@@ -221,52 +172,10 @@ namespace ICS.Controllers
                 ViewBag.Message = "Səhv aşkarlandı. Bir daha yoxlayın";
                 ViewBag.ShowModal = "ImageModal";
                 ViewBag.Language_ID = new SelectList(db.Languages, "ID", "Language_Short");
-                about_Translate.About.image = image;
                 aboutAdmin.about_Translate = about_Translate;
                 return View("Index", aboutAdmin);
             }
-        }
-
-        public ActionResult Delete()
-        {
-            return RedirectToAction("", "_About");
-        }
-
-        // POST: Aboutstest/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int? id)
-        {
-            var dbContextTransaction = db.Database.BeginTransaction();
-            About_Translate about_Translate = new About_Translate();
-            try
-            {
-                if (id == null) return RedirectToAction("BadRequest", "ErrorPage");
-
-                about_Translate = db.About_Translate.Find(id);
-
-                if (about_Translate == null) return RedirectToAction("NotFound", "ErrorPage");
-
-                string image = about_Translate.About.image;
-
-                db.Abouts.Remove(about_Translate.About);
-                db.SaveChanges();
-
-                customMethods.ImageDelete(image);
-
-                dbContextTransaction.Commit();
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                dbContextTransaction.Rollback();
-                ViewBag.Message = "Səhv aşkarlandı. Bir daha yoxlayın";
-                ViewBag.ShowModal = "DeleteModal";
-                ViewBag.Language_ID = new SelectList(db.Languages, "ID", "Language_Short");
-                aboutAdmin.about_Translate = about_Translate;
-                return View("Index", aboutAdmin);
-            }
-        }
+        }        
 
         protected override void Dispose(bool disposing)
         {

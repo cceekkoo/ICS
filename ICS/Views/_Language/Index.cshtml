@@ -22,7 +22,7 @@
                         <div class="form-group row">
                             <div class="col-md-5">
                                 <label>
-                                    Basliq az
+                                    Başlıq (qısa)
                                     @Html.ValidationMessageFor(model => model.language.Language_Short, "", new { @class = "text-danger" })
                                 </label>
                                 @Html.EditorFor(model => model.language.Language_Short, new { htmlAttributes = new { @class = "form-control" } })
@@ -30,7 +30,7 @@
 
                             <div class="col-md-offset-2 col-md-5">
                                 <label>
-                                    Basliq az
+                                    Başlıq (tam)
                                     @Html.ValidationMessageFor(model => model.language.Language_Full, "", new { @class = "text-danger" })
                                 </label>
                                 @Html.EditorFor(model => model.language.Language_Full, new { htmlAttributes = new { @class = "form-control" } })
@@ -38,7 +38,7 @@
 
                             <div class="col-md-5">
                                 <label>
-                                    Basliq az
+                                    Başlıq (captcha)
                                     @Html.ValidationMessageFor(model => model.language.ForCaptcha, "", new { @class = "text-danger" })
                                 </label>
                                 @Html.EditorFor(model => model.language.ForCaptcha, new { htmlAttributes = new { @class = "form-control" } })
@@ -46,7 +46,7 @@
 
                             <div class="col-md-offset-2 col-md-5">
                                 <label>
-                                    Sekil
+                                    Şəkil
                                     @Html.ValidationMessageFor(model => model.language.image, "", new { @class = "text-danger" })
                                 </label>
                                 <input name="file" type="file" class="form-control" />
@@ -56,7 +56,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Ləğv et</button>
+                    <span class="text-danger">@ViewBag.Message</span> <br /><button type="button" class="btn btn-default" data-dismiss="modal">Ləğv et</button>
                     <button type="submit" class="btn btn-primary">Təsdiqlə</button>
                 </div>
             }
@@ -66,39 +66,38 @@
     <!-- /.modal-dialog -->
 </div>
 
-
 <div id="ImageModal" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             @using (Html.BeginForm("ImageChange", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
             {
 
-        <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title">Şəkil redaktəsi</h4>
-        </div>
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Şəkil redaktəsi</h4>
+                </div>
 
-        <div class="modal-body scrollbar">
-            <div class="content-row">
-                @Html.AntiForgeryToken()
-                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="modal-body scrollbar">
+                    <div class="content-row">
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-                <div class="form-group row">
-                    <div class="col-md-5">
-                        <label>
-                            Sekil
-                            @Html.ValidationMessageFor(model => model.language.image, "", new { @class = "text-danger" })
-                        </label>
-                        <input name="file" type="file" class="form-control" />
+                        <div class="form-group row">
+                            <div class="col-md-5">
+                                <label>
+                                    Şəkil
+                                    @Html.ValidationMessageFor(model => model.language.image, "", new { @class = "text-danger" })
+                                </label>
+                                <input name="file" type="file" class="form-control" />
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
 
-        <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Ləğv et</button>
-            <button type="submit" class="btn btn-primary">Təsdiqlə</button>
-        </div>
+                <div class="modal-footer">
+                    <span class="text-danger">@ViewBag.Message</span> <br /><button type="button" class="btn btn-default" data-dismiss="modal">Ləğv et</button>
+                    <button type="submit" class="btn btn-primary">Təsdiqlə</button>
+                </div>
             }
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
@@ -121,10 +120,10 @@
                         <div class="form-group row">
                             <div class="hidden">
                                 @Html.HiddenFor(model => model.language.ID)
-                            </div>   
+                            </div>
                             <div class="col-md-5">
                                 <label>
-                                    Basliq az
+                                    Başlıq (qısa)
                                     @Html.ValidationMessageFor(model => model.language.Language_Short, "", new { @class = "text-danger" })
                                 </label>
                                 @Html.EditorFor(model => model.language.Language_Short, new { htmlAttributes = new { @class = "form-control" } })
@@ -132,7 +131,7 @@
 
                             <div class="col-md-offset-2 col-md-5">
                                 <label>
-                                    Basliq az
+                                    Başlıq (tam)
                                     @Html.ValidationMessageFor(model => model.language.Language_Full, "", new { @class = "text-danger" })
                                 </label>
                                 @Html.EditorFor(model => model.language.Language_Full, new { htmlAttributes = new { @class = "form-control" } })
@@ -140,7 +139,7 @@
 
                             <div class="col-md-5">
                                 <label>
-                                    Basliq az
+                                    Başlıq (captcha)
                                     @Html.ValidationMessageFor(model => model.language.ForCaptcha, "", new { @class = "text-danger" })
                                 </label>
                                 @Html.EditorFor(model => model.language.ForCaptcha, new { htmlAttributes = new { @class = "form-control" } })
@@ -150,7 +149,7 @@
                 </div>
 
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Ləğv et</button>
+                    <span class="text-danger">@ViewBag.Message</span> <br /><button type="button" class="btn btn-default" data-dismiss="modal">Ləğv et</button>
                     <button type="submit" class="btn btn-primary">Təsdiqlə</button>
                 </div>
             }
@@ -170,7 +169,19 @@
                 <div class="row content-row">
                     <table class="table table-bordered table-striped table-modal">
                         <tr>
-                            <td class="border" width="20%">Image1</td>
+                            <td class="border" width="20%">Başlıq (qısa)</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="border" width="20%">Başlıq (tam)</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="border" width="20%">Başlıq (captcha)</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="border" width="20%">Şəkil</td>
                             <td></td>
                         </tr>
                     </table>
@@ -196,7 +207,19 @@
                 <div class="row content-row">
                     <table class="table table-bordered table-striped table-modal">
                         <tr>
-                            <td class="border" width="20%">Image1</td>
+                            <td class="border" width="20%">Başlıq (qısa)</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="border" width="20%">Başlıq (tam)</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="border" width="20%">Başlıq (captcha)</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="border" width="20%">Şəkil</td>
                             <td></td>
                         </tr>
                     </table>
@@ -206,7 +229,7 @@
             {
                 @Html.AntiForgeryToken()
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Ləğv et</button>
+                    <span class="text-danger">@ViewBag.Message</span> <br /><button type="button" class="btn btn-default" data-dismiss="modal">Ləğv et</button>
                     <button type="submit" class="btn btn-primary">Təsdiqlə</button>
                 </div>
             }
@@ -220,7 +243,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            HAQQIMIZDA
+            DİLLƏR
         </h1>
     </section>
     <!-- Main content -->
@@ -238,10 +261,10 @@
                             <thead>
                                 <tr>
                                     <th class="hidden">ID</th>
-                                    <th>Basliq</th>
-                                    <th>Metn</th>
-                                    <th>Image</th>
-                                    <th>Image</th>
+                                    <th>Başlıq (qısa)</th>
+                                    <th>Başlıq (tam)</th>
+                                    <th>Başlıq (captcha)</th>
+                                    <th>Şəkil</th>
                                     <th></th>
                                 </tr>
                             </thead>
@@ -259,17 +282,16 @@
 
                                         <td class="text-center">
                                             <img width="50" height="30" src="~/Content/images/@item.image" />
-                                            <button type="button" class="grid-buttons btn-upload" title="Şəkil yüklə"
-                                                    data-toggle="modal" data-target="#ImageModal"></button>
                                         </td>
                                         <td>
                                             <button type="button" class="grid-buttons btn-edit" title="Redaktə"
                                                     data-toggle="modal" data-target="#EditModal"></button>
                                             <button type="button" class="grid-buttons btn-view" title="Ətraflı"
                                                     data-toggle="modal" data-target="#ViewModal"></button>
-
                                             <button type="button" class="grid-buttons btn-delete" title="Sil"
                                                     data-toggle="modal" data-target="#DeleteModal"></button>
+                                            <button type="button" class="grid-buttons btn-upload" title="Şəkil yüklə"
+                                                    data-toggle="modal" data-target="#ImageModal"></button>
                                         </td>
                                     </tr>
                                 }
@@ -277,10 +299,10 @@
                             <tfoot>
                                 <tr>
                                     <th class="hidden">ID</th>
-                                    <th>Basliq</th>
-                                    <th>Metn</th>
-                                    <th>Image</th>
-                                    <th>Image</th>
+                                    <th>Başlıq (qısa)</th>
+                                    <th>Başlıq (tam)</th>
+                                    <th>Başlıq (captcha)</th>
+                                    <th>Şəkil</th>
                                     <th></th>
                                 </tr>
                             </tfoot>

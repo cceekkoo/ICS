@@ -22,7 +22,7 @@
                         <div class="form-group row">
                             <div class="col-md-5">
                                 <label>
-                                    Basliq az
+                                    İcon
                                     @Html.ValidationMessageFor(model => model.address_Translate.Address.icon, "", new { @class = "text-danger" })
                                 </label>
                                 @Html.EditorFor(model => model.address_Translate.Address.icon, new { htmlAttributes = new { @class = "form-control" } })
@@ -30,7 +30,7 @@
                                                         
                             <div class="col-md-12">
                                 <label>
-                                    Metn az
+                                    Mətn (Azərbaycanca)
                                     @Html.ValidationMessageFor(model => model.address_Translate.Text, "", new { @class = "text-danger" })
                                 </label>
                                 @Html.EditorFor(model => model.address_Translate.Text, new { htmlAttributes = new { @class = "form-control summernote" } })
@@ -40,7 +40,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Ləğv et</button>
+                    <span class="text-danger">@ViewBag.Message</span> <br /><span class="text-danger">@ViewBag.Message</span> <br /><button type="button" class="btn btn-default" data-dismiss="modal">Ləğv et</button>
                     <button type="submit" class="btn btn-primary">Təsdiqlə</button>
                 </div>
             }
@@ -86,7 +86,7 @@
                             </div>
                             <div class="col-md-12">
                                 <label>
-                                    Metn az
+                                    Mətn
                                     @Html.ValidationMessageFor(model => model.address_Translate.Text, "", new { @class = "text-danger" })
                                 </label>
                                 @Html.EditorFor(model => model.address_Translate.Text, new { htmlAttributes = new { @class = "form-control summernote" } })
@@ -96,7 +96,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Ləğv et</button>
+                    <span class="text-danger">@ViewBag.Message</span> <br /><button type="button" class="btn btn-default" data-dismiss="modal">Ləğv et</button>
                     <button type="submit" class="btn btn-primary">Təsdiqlə</button>
                 </div>
             }
@@ -125,14 +125,14 @@
                             </div>
                             <div class="col-md-5">
                                 <label>
-                                    Basliq az
+                                    İcon
                                     @Html.ValidationMessageFor(model => model.address_Translate.Address.icon, "", new { @class = "text-danger" })
                                 </label>
                                 @Html.EditorFor(model => model.address_Translate.Address.icon, new { htmlAttributes = new { @class = "form-control" } })
                             </div>
                             <div class="col-md-12">
                                 <label>
-                                    Metn az
+                                    Mətn
                                     @Html.ValidationMessageFor(model => model.address_Translate.Text, "", new { @class = "text-danger" })
                                 </label>
                                 @Html.EditorFor(model => model.address_Translate.Text, new { htmlAttributes = new { @class = "form-control summernote" } })
@@ -142,7 +142,7 @@
                 </div>
 
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Ləğv et</button>
+                    <span class="text-danger">@ViewBag.Message</span> <br /><span class="text-danger">@ViewBag.Message</span> <br /><button type="button" class="btn btn-default" data-dismiss="modal">Ləğv et</button>
                     <button type="submit" class="btn btn-primary">Təsdiqlə</button>
                 </div>
             }
@@ -162,7 +162,11 @@
                 <div class="row content-row">
                     <table class="table table-bordered table-striped table-modal">
                         <tr>
-                            <td class="border" width="20%">Image1</td>
+                            <td class="border" width="20%">İcon</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="border" width="20%">Mətn</td>
                             <td></td>
                         </tr>
                     </table>
@@ -188,7 +192,11 @@
                 <div class="row content-row">
                     <table class="table table-bordered table-striped table-modal">
                         <tr>
-                            <td class="border" width="20%">Image1</td>
+                            <td class="border" width="20%">İcon</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="border" width="20%">Mətn</td>
                             <td></td>
                         </tr>
                     </table>
@@ -198,7 +206,8 @@
             {
                 @Html.AntiForgeryToken()
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Ləğv et</button>
+                    <span class="text-danger">@ViewBag.Message</span>
+                    <span class="text-danger">@ViewBag.Message</span> <br /><button type="button" class="btn btn-default" data-dismiss="modal">Ləğv et</button>
                     <button type="submit" class="btn btn-primary">Təsdiqlə</button>
                 </div>
             }
@@ -212,7 +221,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            HAQQIMIZDA
+            ÜNVAN
         </h1>
     </section>
     <!-- Main content -->
@@ -230,8 +239,8 @@
                             <thead>
                                 <tr>
                                     <th class="hidden">ID</th>
-                                    <th>Icon</th>
-                                    <th>Metn</th>
+                                    <th>İcon</th>
+                                    <th>Mətn</th>
                                     <th></th>
                                     <th class="hidden"></th>
                                     <th class="hidden"></th>
@@ -278,8 +287,8 @@
                             <tfoot>
                                 <tr>
                                     <th class="hidden">ID</th>
-                                    <th>Icon</th>
-                                    <th>Metn</th>
+                                    <th>İcon</th>
+                                    <th>Mətn</th>
                                     <th></th>
                                     <th class="hidden"></th>
                                     <th class="hidden"></th>

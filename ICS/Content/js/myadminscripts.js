@@ -68,7 +68,7 @@ $(document).on("click", ".btn-add", function () {
     $('#AddModal .form-group div input').children('textarea').html(null);
     $('#AddModal .form-group div').children('input').val(null);
     $('#AddModal .form-group div .note-editable').html(null);
-    $('.form-group > div> label > span').html(null);
+    $('.text-danger').html(null);
 })
 
 $(document).on("click", ".btn-translate", function () {
@@ -78,7 +78,7 @@ $(document).on("click", ".btn-translate", function () {
     $('#TranslateModal .form-group div .note-editable').html(null);
     var id = $('#table tbody tr:nth-child(' + index + ') td:first-child').html();
     $('#TranslateModal .form-group .hidden:first-child').children('input').val(id);
-    $('.form-group > div > label > span').html(null);
+    $('.text-danger').html(null);
     nottranslated(index);
 })
 
@@ -100,6 +100,7 @@ $(document).on("click", ".btn-delete", function () {
     }
     var id = $('#table tbody tr:nth-child(' + index + ') td:nth-child(1)').text();
     $('#DeleteModal form').attr('action', '/' + deleteurl.split('/')[1] + '/' + deleteurl.split('/')[2] + '/' + id);
+    $('.text-danger').html(null);
 })
 
 var imageurl = $('#ImageModal form').attr('action');
@@ -108,7 +109,7 @@ $(document).on("click", ".btn-upload", function () {
     var index = $(this).parent().parent().index() + 1;
     var id = $('#table tbody tr:nth-child(' + index + ') td:nth-child(1)').text();
     $('#ImageModal form').attr('action', '/' + imageurl.split('/')[1] + '/' + imageurl.split('/')[2] + '/' + id);
-    $('.form-group > div> label > span').html(null);
+    $('.text-danger').html(null);
 })
 
 $(document).on("submit", "form", function () {

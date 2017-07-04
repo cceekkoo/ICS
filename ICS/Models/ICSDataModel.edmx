@@ -203,9 +203,7 @@
           <Property Name="Language_ID" Type="int" Nullable="false" />
         </EntityType>
         <Association Name="FK_About_Translate_About">
-          <End Role="About" Type="Self.About" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
+          <End Role="About" Type="Self.About" Multiplicity="1" />
           <End Role="About_Translate" Type="Self.About_Translate" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="About">
@@ -794,9 +792,7 @@
           <NavigationProperty Name="Step" Relationship="Models.FK_Steps_Translate_Steps" FromRole="Steps_Translate" ToRole="Step" />
         </EntityType>
         <Association Name="FK_About_Translate_About">
-          <End Type="Models.About" Role="About" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
+          <End Type="Models.About" Role="About" Multiplicity="1" />
           <End Type="Models.About_Translate" Role="About_Translate" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="About">
@@ -985,7 +981,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>

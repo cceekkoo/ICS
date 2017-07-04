@@ -11,10 +11,13 @@ namespace ICS.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class SendEmailTo
     {
         public int ID { get; set; }
+        [Required(ErrorMessage = "***")]
+        [EmailAddress(ErrorMessage ="Email düzgün deyil")]
         public string Email { get; set; }
     }
 }

@@ -28,9 +28,11 @@ namespace ICS.Models
         }
     
         public int ID { get; set; }
-        [Required(ErrorMessage = "*")]
+        [Required(ErrorMessage = "***")]
         public string Language_Short { get; set; }
+        [Required(ErrorMessage = "***")]
         public string Language_Full { get; set; }
+        [Required(ErrorMessage = "***")]
         public string ForCaptcha { get; set; }
         public string image { get; set; }
     

@@ -11,7 +11,8 @@ namespace ICS.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Order
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -19,15 +20,21 @@ namespace ICS.Models
         {
             this.Order_Services = new HashSet<Order_Services>();
         }
-    
+
         public int ID { get; set; }
+        [Required(ErrorMessage = "***")]
         public string Company_Name { get; set; }
+        [Required(ErrorMessage = "***")]
         public string VOEN { get; set; }
+        [Required(ErrorMessage = "***")]
+        [EmailAddress(ErrorMessage = "***")]
         public string Email { get; set; }
+        [Required(ErrorMessage = "***")]
         public string Contact_Name { get; set; }
+        [Required(ErrorMessage = "***")]
         public string Phone { get; set; }
         public string Additional_Order { get; set; }
-    
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order_Services> Order_Services { get; set; }
     }

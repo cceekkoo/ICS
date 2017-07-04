@@ -11,7 +11,8 @@ namespace ICS.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Address
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -19,10 +20,12 @@ namespace ICS.Models
         {
             this.Address_Translate = new HashSet<Address_Translate>();
         }
-    
+
         public int ID { get; set; }
+        [Required(ErrorMessage = "***")]
+        [StringLength(10, ErrorMessage = "10 simvoldan çoxdur")]
         public string icon { get; set; }
-    
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Address_Translate> Address_Translate { get; set; }
     }

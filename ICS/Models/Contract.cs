@@ -11,19 +11,30 @@ namespace ICS.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Contract
     {
         public int ID { get; set; }
+        [Required(ErrorMessage = "***")]
         public string Company_Name { get; set; }
+        [Required(ErrorMessage = "***")]
         public string Company_Manager { get; set; }
+        [Required(ErrorMessage = "***")]
         public string Address { get; set; }
+        [Required(ErrorMessage = "***")]
         public string Company_VOEN { get; set; }
+        [Required(ErrorMessage = "***")]
         public string Bank_Name { get; set; }
+        [Required(ErrorMessage = "***")]
         public string Settlement_Account { get; set; }
+        [Required(ErrorMessage = "***")]
         public int Code { get; set; }
+        [Required(ErrorMessage = "***")]
         public string Bank_VOEN { get; set; }
+        [Required(ErrorMessage = "***")]
         public string Correspondent_Account { get; set; }
+        [Required(ErrorMessage = "***")]
         public string Swift { get; set; }
         public DateTime Send_Date { get; set; }
     }

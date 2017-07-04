@@ -11,7 +11,8 @@ namespace ICS.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Menu
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -22,6 +23,7 @@ namespace ICS.Models
     
         public int ID { get; set; }
         public string Url { get; set; }
+        [Required(ErrorMessage = "***")]
         public int Sorting { get; set; }
         public int? Parent_ID { get; set; }
     

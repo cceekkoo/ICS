@@ -19,6 +19,7 @@ namespace ICS.Models
         [Required(ErrorMessage = "***")]
         public string Text { get; set; }
         [Required(ErrorMessage = "***")]
+        [StringLength(10, ErrorMessage = "10 simvoldan çoxdur")]
         public string icon { get; set; }
     }
 }

@@ -247,6 +247,7 @@
     <Compile Include="Controllers\_ContractController.cs" />
     <Compile Include="Controllers\_LanguageController.cs" />
     <Compile Include="Controllers\_OrderController.cs" />
+    <Compile Include="Controllers\_PartialController.cs" />
     <Compile Include="Controllers\_SendEmailToController.cs" />
     <Compile Include="Controllers\_ServicesController.cs" />
     <Compile Include="Controllers\_Site_ContentController.cs" />
@@ -425,6 +426,9 @@
     <Content Include="Views\_Social\Index.cshtml" />
     <Content Include="Views\_Site_Images\Index.cshtml" />
     <Content Include="Views\_Site_Content\Index.cshtml" />
+    <Content Include="Views\_Partial\_HeaderPartial.cshtml" />
+    <Content Include="Views\_Partial\_LeftSideMenuPartial.cshtml" />
+    <Content Include="Views\_Partial\_FooterPartial.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

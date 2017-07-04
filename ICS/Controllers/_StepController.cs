@@ -173,7 +173,6 @@ namespace ICS.Controllers
                 ViewBag.Message = "Səhv aşkarlandı. Bir daha yoxlayın";
                 ViewBag.ShowModal = "ImageModal";
                 ViewBag.Language_ID = new SelectList(db.Languages, "ID", "Language_Short");
-                step_Translate.Step.image = image;
                 stepAdmin.step_Translate = step_Translate;
                 return View("Index", stepAdmin);
             }

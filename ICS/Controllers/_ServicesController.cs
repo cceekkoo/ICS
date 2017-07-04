@@ -171,7 +171,6 @@ namespace ICS.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [ValidateInput(false)]
         public ActionResult ImageChange(int? id, HttpPostedFileBase file)
         {
             var dbContextTransaction = db.Database.BeginTransaction();
@@ -216,7 +215,6 @@ namespace ICS.Controllers
                 ViewBag.Message = "Səhv aşkarlandı. Bir daha yoxlayın";
                 ViewBag.ShowModal = "ImageModal";
                 ViewBag.Language_ID = new SelectList(db.Languages, "ID", "Language_Short");
-                services_Translate.Service.image = image;
                 servicesAdmin.services_Translate = services_Translate;
                 return View("Index", servicesAdmin);
             }

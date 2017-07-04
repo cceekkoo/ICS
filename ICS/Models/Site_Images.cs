@@ -11,11 +11,13 @@ namespace ICS.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Site_Images
     {
         public int ID { get; set; }
         public string image { get; set; }
+        [Required(ErrorMessage = "***")]
         public string Description { get; set; }
     }
 }

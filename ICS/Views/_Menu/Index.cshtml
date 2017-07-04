@@ -25,7 +25,7 @@
                             </div>
                             <div class="col-md-5">
                                 <label>
-                                    Metn az
+                                    Mətn
                                     @Html.ValidationMessageFor(model => model.menu_Translate.Text, "", new { @class = "text-danger" })
                                 </label>
                                 @Html.EditorFor(model => model.menu_Translate.Text, new { htmlAttributes = new { @class = "form-control" } })
@@ -49,7 +49,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Ləğv et</button>
+                    <span class="text-danger">@ViewBag.Message</span> <br /><button type="button" class="btn btn-default" data-dismiss="modal">Ləğv et</button>
                     <button type="submit" class="btn btn-primary">Təsdiqlə</button>
                 </div>
             }
@@ -78,7 +78,7 @@
                             </div>
                             <div class="col-md-5">
                                 <label>
-                                    Metn az
+                                    Mətn
                                     @Html.ValidationMessageFor(model => model.menu_Translate.Text, "", new { @class = "text-danger" })
                                 </label>
                                 @Html.EditorFor(model => model.menu_Translate.Text, new { htmlAttributes = new { @class = "form-control" } })
@@ -86,7 +86,7 @@
 
                             <div class="col-md-offset-2 col-md-5">
                                 <label>
-                                    Basliq az
+                                    Url
                                     @Html.ValidationMessageFor(model => model.menu_Translate.Menu.Url, "", new { @class = "text-danger" })
                                 </label>
                                 @Html.EditorFor(model => model.menu_Translate.Menu.Url, new { htmlAttributes = new { @class = "form-control" } })
@@ -94,7 +94,7 @@
 
                             <div class="col-md-5">
                                 <label>
-                                    Basliq az
+                                    Sıralama nömrəsi
                                     @Html.ValidationMessageFor(model => model.menu_Translate.Menu.Sorting, "", new { @class = "text-danger" })
                                 </label>
                                 @Html.EditorFor(model => model.menu_Translate.Menu.Sorting, new { htmlAttributes = new { @class = "form-control", @Type = "text" } })
@@ -102,7 +102,7 @@
 
                             <div class="col-md-offset-2 col-md-5">
                                 <label>
-                                    Basliq az
+                                    Üst menyu
                                     @Html.ValidationMessageFor(model => model.menu_Translate.Menu.Parent_ID, "", new { @class = "text-danger" })
                                 </label>
                                 @Html.DropDownList("Parent_ID", null, "", htmlAttributes: new { @class = "form-control", @Name = "menu_Translate.Menu.Parent_ID", @id = "menu_Translate_Menu_Parent_ID" })
@@ -112,7 +112,7 @@
                 </div>
 
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Ləğv et</button>
+                    <span class="text-danger">@ViewBag.Message</span> <br /><button type="button" class="btn btn-default" data-dismiss="modal">Ləğv et</button>
                     <button type="submit" class="btn btn-primary">Təsdiqlə</button>
                 </div>
             }
@@ -132,8 +132,20 @@
                 <div class="row content-row">
                     <table class="table table-bordered table-striped table-modal">
                         <tr>
-                            <td class="border" width="20%">Image1</td>
+                            <td class="border" width="20%">Mətn</td>
+                            <td></td>             
+                        </tr>
+                        <tr>
+                            <td class="border" width="20%">Url</td>
                             <td></td>
+                        </tr>
+                        <tr>
+                            <td class="border" width="20%">Sıralama nömrəsi</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="border" width="20%">Üst menyu</td>
+                            <td></td>               
                         </tr>
                     </table>
                 </div>
@@ -145,43 +157,13 @@
     </div><!-- /.modal-dialog -->
 </div>
 
-<div id="DeleteModal" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">Məlumat silinəcək</h4>
-            </div>
-
-            <div class="modal-body scrollbar">
-                <div class="row content-row">
-                    <table class="table table-bordered table-striped table-modal">
-                        <tr>
-                            <td class="border" width="20%">Image1</td>
-                            <td></td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-            @using (Html.BeginForm("Delete", null))
-            {
-        @Html.AntiForgeryToken()
-        <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Ləğv et</button>
-            <button type="submit" class="btn btn-primary">Təsdiqlə</button>
-        </div>
-            }
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-</div>
 <!-- /.modal -->
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            HAQQIMIZDA
+            MENYULAR
         </h1>
     </section>
     <!-- Main content -->
@@ -199,10 +181,10 @@
                             <thead>
                                 <tr>
                                     <th class="hidden">ID</th>
-                                    <th>Icon</th>
-                                    <th>Metn</th>
-                                    <th>Icon</th>
-                                    <th>Metn</th>
+                                    <th>Mətn</th>
+                                    <th>Url</th>
+                                    <th>Sıralama nömrəsi</th>
+                                    <th>Üst menyu</th>
                                     <th></th>
                                     <th class="hidden"></th>
                                     <th class="hidden"></th>
@@ -249,10 +231,10 @@
                             <tfoot>
                                 <tr>
                                     <th class="hidden">ID</th>
-                                    <th>Icon</th>
-                                    <th>Metn</th>
-                                    <th>Icon</th>
-                                    <th>Metn</th>
+                                    <th>Mətn</th>
+                                    <th>Url</th>
+                                    <th>Sıralama nömrəsi</th>
+                                    <th>Üst menyu</th>
                                     <th></th>
                                     <th class="hidden"></th>
                                     <th class="hidden"></th>
