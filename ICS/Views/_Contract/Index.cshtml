@@ -1,0 +1,177 @@
+﻿@model  IEnumerable<ICS.Models.Contract>
+@{
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<div id="ViewModal" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Ətraflı</h4>
+            </div>
+
+            <div class="modal-body scrollbar">
+                <div class="row content-row">
+                    <table class="table table-bordered table-striped table-modal">
+                        <tr>
+                            <td class="border" width="20%">Image1</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="border" width="20%">Image1</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="border" width="20%">Image1</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="border" width="20%">Image1</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="border" width="20%">Image1</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="border" width="20%">Image1</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="border" width="20%">Image1</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="border" width="20%">Image1</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="border" width="20%">Image1</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="border" width="20%">Image1</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="border" width="20%">Image1</td>
+                            <td></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Bağla</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+
+<!-- /.modal -->
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            HAQQIMIZDA
+        </h1>
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <div class="row content-row">
+            <div class="col-xs-12">
+                <div class="box">
+                    <div class="box-header">
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        <table id="table" class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th class="hidden">ID</th>
+                                    <th>Metn</th>
+                                    <th>Icon</th>
+                                    <th>Metn</th>
+                                    <th>Icon</th>
+                                    <th>Metn</th>
+                                    <th>Icon</th>
+                                    <th>Metn</th>
+                                    <th>Icon</th>
+                                    <th>Metn</th>
+                                    <th>Icon</th>
+                                    <th>Icon</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                <tr>
+                                    <td class="hidden">@item.ID</td>
+
+                                    <td>@item.Company_Name</td>
+
+                                    <td>@item.Company_Manager</td>
+
+                                    <td>@item.Address</td>
+
+                                    <td>@item.Company_VOEN</td>
+
+                                    <td>@item.Bank_Name</td>
+
+                                    <td>@item.Settlement_Account</td>
+
+                                    <td>@item.Code</td>
+
+                                        <td>@item.Bank_VOEN</td>
+
+                                        <td>@item.Correspondent_Account</td>
+
+                                        <td>@item.Swift</td>
+
+                                        <td>@item.Send_Date</td>
+
+                                        <td>
+                                            <button type="button" class="grid-buttons btn-view" title="Ətraflı"
+                                                    data-toggle="modal" data-target="#ViewModal"></button>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th class="hidden">ID</th>
+                                    <th>Metn</th>
+                                    <th>Icon</th>
+                                    <th>Metn</th>
+                                    <th>Icon</th>
+                                    <th>Metn</th>
+                                    <th>Icon</th>
+                                    <th>Metn</th>
+                                    <th>Icon</th>
+                                    <th>Metn</th>
+                                    <th>Icon</th>
+                                    <th>Icon</th>
+                                    <th></th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+                <!-- /.box -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </section>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+
+<script>
+    $(window).on('load', function () {
+        $("#@ViewBag.ShowModal").modal('show');
+    });
+</script>

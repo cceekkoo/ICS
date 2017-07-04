@@ -1,0 +1,172 @@
+﻿@using ICS.Models
+@model ICS.Models.Merge.OrdersMerge
+@{
+    List<Site_Contents> site_Contents = Model.site_Contents.ToList();
+}
+
+@if (ViewBag.MessageSend != null)
+{
+    <script>
+        $(window).on('load', function () {
+            $('#myModal').modal('show');
+        });
+    </script>
+}
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title text-center" id="myModalLabel">@ViewBag.MessageSend</h4>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- start top_bg -->
+<div class="top_bg">
+    <div class="wrap">
+        <div class="top">
+            <h2 class="header-font">@Model.menu</h2>
+        </div>
+    </div>
+</div>
+
+<div class="wrap">
+    <div class="main">
+        <div class="contact">
+            <div class="contact-form">
+                <div class="content">
+                    <h2 class="text-center">@site_Contents[0].Text</h2>
+                </div>
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" });
+                    <div class="col-md-6">
+                        <div>
+                            <span>
+                                <label>
+                                    @site_Contents[1].Text
+                                    @Html.ValidationMessageFor(model => model.orderServiceMerge.order.Company_Name, "", new { @class = "text-danger" })
+                                </label>
+                            </span>
+                            <span>
+                                @Html.EditorFor(model => model.orderServiceMerge.order.Company_Name,
+                       new { htmlAttributes = new { @class = "textbox", @placeholder = site_Contents[1].Text } })
+                            </span>
+                        </div>
+                        <div>
+                            <span>
+                                <label>
+                                    @site_Contents[2].Text
+                                    @Html.ValidationMessageFor(model => model.orderServiceMerge.order.VOEN, "", new { @class = "text-danger" })
+                                </label>
+                            </span>
+                            <span>
+                                @Html.EditorFor(model => model.orderServiceMerge.order.VOEN,
+                       new { htmlAttributes = new { @class = "textbox", @placeholder = site_Contents[2].Text } })
+                            </span>
+                        </div>
+                        <div>
+                            <span>
+                                <label>
+                                    @site_Contents[5].Text
+                                    @Html.ValidationMessageFor(model => model.orderServiceMerge.order.Email, "", new { @class = "text-danger" })
+                                </label>
+                            </span>
+                            <span>
+                                @Html.EditorFor(model => model.orderServiceMerge.order.Email,
+                       new { htmlAttributes = new { @class = "textbox", @placeholder = site_Contents[5].Text, @Type = "text" } })
+                            </span>
+                        </div>
+                        <div>
+                            <span>
+                                <label>
+                                    @site_Contents[4].Text
+                                    @Html.ValidationMessageFor(model => model.orderServiceMerge.order.Contact_Name, "", new { @class = "text-danger" })
+                                </label>
+                            </span>
+                            <span>
+                                @Html.EditorFor(model => model.orderServiceMerge.order.Contact_Name,
+                       new { htmlAttributes = new { @class = "textbox", @placeholder = site_Contents[4].Text } })
+                            </span>
+                        </div>
+                        <div>
+                            <span>
+                                <label>
+                                    @site_Contents[3].Text
+                                    @Html.ValidationMessageFor(model => model.orderServiceMerge.order.Phone, "", new { @class = "text-danger" })
+                                </label>
+                            </span>
+                            <span>
+                                @Html.EditorFor(model => model.orderServiceMerge.order.Phone,
+                       new { htmlAttributes = new { @class = "textbox", @placeholder = site_Contents[3].Text } })
+                            </span>
+                        </div>
+                        <div>
+                            <span>
+                                <label>
+                                    @site_Contents[8].Text
+                                    @Html.ValidationMessageFor(model => model.orderServiceMerge.order.Additional_Order, "", new { @class = "text-danger" })
+                                </label>
+                            </span>
+                            <span>
+                                @Html.EditorFor(model => model.orderServiceMerge.order.Additional_Order)
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div>
+                            <fieldset class="fieldset">
+                                <legend>
+                                    @site_Contents[6].Text
+                                    @Html.ValidationMessageFor(model => model.orderServiceMerge.servicesForOrder,
+                               "", new { @class = "text-danger" })
+                                </legend>
+                                @for (int i = 0; i < Model.orderServiceMerge.servicesForOrder.Count(); i++)
+                                {
+                                    <div class="checkbox">
+                                        @if (Model.orderServiceMerge.servicesForOrder[i].Is_Selected)
+                                        {
+                                            <input type="checkbox" name="orderServiceMerge.servicesForOrder[@i].Is_Selected"
+                                                   id="orderServiceMerge.servicesForOrder[@i].Is_Selected"
+                                                   class="css-checkbox" value="true" checked />
+                                        }
+                                        else
+                                        {
+                                            <input type="checkbox" name="orderServiceMerge.servicesForOrder[@i].Is_Selected"
+                                                   id="orderServiceMerge.servicesForOrder[@i].Is_Selected"
+                                                   class="css-checkbox" value="true" />
+                                        }
+                                        <label for="orderServiceMerge.servicesForOrder[@i].Is_Selected" class="css-label">
+                                            @Model.orderServiceMerge.servicesForOrder[i].Title
+                                            @Html.HiddenFor(model => model.orderServiceMerge.servicesForOrder[i].Title)
+                                        </label>
+                                        @Html.HiddenFor(model => model.orderServiceMerge.servicesForOrder[i].Value_ID)
+                                    </div>
+                                }
+                            </fieldset>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-12">
+                        <div class="g-recaptcha" data-sitekey="6Lc5Vh8UAAAAAGm9fLgVDjRwMQGNQmquy1GmRvKp"></div>
+                        <div>
+                            <span><input type="submit" value="@site_Contents[7].Text"></span>
+                        </div>
+                    </div>
+                }
+            </div>
+
+            <div class="clear"> </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/Content/js/order.js"></script>
+<script src="~/Content/js/jquery.validate.min.js"></script>
+<script src="~/Content/js/jquery.validate.unobtrusive.min.js"></script>
+<script src="https://www.google.com/recaptcha/api.js?hl= + @Model.captchaLanguage" async defer></script>

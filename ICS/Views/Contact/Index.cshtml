@@ -1,0 +1,114 @@
+﻿@using ICS.Models
+@model ICS.Models.Merge.ContactMerge
+@{
+    List<Site_Contents> site_Contents = Model.site_Contents.ToList();
+}
+
+@if (ViewBag.MessageSend != null)
+{
+    <script type="text/javascript">
+        $(window).on('load', function () {
+            $('#myModal').modal('show');
+        });
+    </script>
+}
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title text-center" id="myModalLabel">@ViewBag.MessageSend</h4>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- start top_bg -->
+<div class="top_bg">
+    <div class="wrap">
+        <div class="top">
+            <h2 class="header-font">@Model.menu</h2>
+        </div>
+    </div>
+</div>
+<!-- start main -->
+<div class="wrap">
+    <div class="main">
+        <div class="contact">
+            <div class="contact-form  col-md-7">
+                <div class="content">
+                    <h2>@site_Contents[0].Text</h2>
+                </div>
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" });
+                    <div>
+                        <span>
+                            <label>
+                                @site_Contents[1].Text
+                                @Html.ValidationMessageFor(model => model.sendEmail.Name, "", new { @class = "text-danger" })
+                            </label>
+                        </span>
+                        <span>
+                            @Html.EditorFor(model => model.sendEmail.Name,
+                       new { htmlAttributes = new { @class = "textbox", @placeholder = site_Contents[1].Text } })
+                        </span>
+                    </div>
+                    <div>
+                        <span>
+                            <label>
+                                @site_Contents[2].Text
+                                @Html.ValidationMessageFor(model => model.sendEmail.Email, "", new { @class = "text-danger" })
+                            </label>
+                        </span>
+                        <span>
+                            @Html.EditorFor(model => model.sendEmail.Email,
+                       new { htmlAttributes = new { @class = "textbox", @placeholder = site_Contents[2].Text, @Type = "text" } })
+                        </span>
+                    </div>
+                    <div>
+                        <span>
+                            <label>
+                                @site_Contents[3].Text
+                                @Html.ValidationMessageFor(model => model.sendEmail.PhoneNumber, "", new { @class = "text-danger" })
+                            </label>
+                        </span>
+                        <span>
+                            @Html.EditorFor(model => model.sendEmail.PhoneNumber,
+                       new { htmlAttributes = new { @class = "textbox", @placeholder = site_Contents[3].Text } })
+                        </span>
+                    </div>
+                    <div>
+                        <span>
+                            <label>
+                                @site_Contents[4].Text
+                                @Html.ValidationMessageFor(model => model.sendEmail.Message, "", new { @class = "text-danger" })
+                            </label>
+                        </span>
+                        <span>
+                            @Html.EditorFor(model => model.sendEmail.Message)
+                        </span>
+                    </div>
+                    <div class="g-recaptcha" data-sitekey="6Lc5Vh8UAAAAAGm9fLgVDjRwMQGNQmquy1GmRvKp"></div>
+                    <div>
+                        <span><input type="submit" class="" value="@site_Contents[5].Text"></span>
+                    </div>
+                }
+            </div>
+            <div class="contact_info col-md-5">
+                <h2 class="style">@site_Contents[6].Text</h2>
+                <div class="map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1518.8503445897004!2d49.87814926377992!3d40.41548100986595!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x403062a8b89eec3d%3A0xc5ef72ee5a7e378f!2z0JHQuNC30L3QtdGBLdCm0LXQvdGC0YAgU0ROIEdyb3Vw!5e0!3m2!1sru!2s!4v1493415643419" allowfullscreen></iframe>
+                </div>
+            </div>
+
+            <div class="clear"> </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/Content/js/jquery.validate.min.js"></script>
+<script src="~/Content/js/jquery.validate.unobtrusive.min.js"></script>
+<script src="https://www.google.com/recaptcha/api.js?hl= + @Model.captchaLanguage" async defer></script>

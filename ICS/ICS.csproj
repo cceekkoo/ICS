@@ -1,0 +1,480 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{AB2C913B-408A-4170-B2BD-44614D298CE3}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ICS</RootNamespace>
+    <AssemblyName>ICS</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.0.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.6\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.2.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.2.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.2.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.2.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.2.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.2.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Deployment">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\css\AdminLTE.min.css" />
+    <Content Include="Content\css\bootstrap.min.css" />
+    <Content Include="Content\css\dataTables.bootstrap.css" />
+    <Content Include="Content\css\font-awesome.min.css" />
+    <Content Include="Content\css\jquery.dataTables.min.css" />
+    <Content Include="Content\css\login.css" />
+    <Content Include="Content\css\myadmin.css" />
+    <Content Include="Content\css\skin-blue.min.css" />
+    <Content Include="Content\css\style.css" />
+    <Content Include="Content\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\images\400.png" />
+    <Content Include="Content\images\403.png" />
+    <Content Include="Content\images\404.png" />
+    <Content Include="Content\images\500.png" />
+    <Content Include="Content\images\add.png" />
+    <Content Include="Content\images\add_lang.png" />
+    <Content Include="Content\images\az.jpg" />
+    <Content Include="Content\images\call.png" />
+    <Content Include="Content\images\checkbox.png" />
+    <Content Include="Content\images\delete.png" />
+    <Content Include="Content\images\edit.png" />
+    <Content Include="Content\images\error.png" />
+    <Content Include="Content\images\facebook.png" />
+    <Content Include="Content\images\footer_bg.png" />
+    <Content Include="Content\images\footer_bg1.png" />
+    <Content Include="Content\images\gb.jpg" />
+    <Content Include="Content\images\google-plus.png" />
+    <Content Include="Content\images\instagram.png" />
+    <Content Include="Content\images\logo.png" />
+    <Content Include="Content\images\logo_small.png" />
+    <Content Include="Content\images\mail.png" />
+    <Content Include="Content\images\pin.png" />
+    <Content Include="Content\images\ru.jpg" />
+    <Content Include="Content\images\serv1.jpg" />
+    <Content Include="Content\images\serv2.jpg" />
+    <Content Include="Content\images\serv3.jpg" />
+    <Content Include="Content\images\serv4.jpg" />
+    <Content Include="Content\images\serv5.jpg" />
+    <Content Include="Content\images\serv6.jpg" />
+    <Content Include="Content\images\serv7.jpg" />
+    <Content Include="Content\images\serv8.jpg" />
+    <Content Include="Content\images\slide1.jpg" />
+    <Content Include="Content\images\slide2.jpg" />
+    <Content Include="Content\images\slide3.jpg" />
+    <Content Include="Content\images\slide4.jpg" />
+    <Content Include="Content\images\slide5.jpg" />
+    <Content Include="Content\images\slide6.jpg" />
+    <Content Include="Content\images\slide7.jpg" />
+    <Content Include="Content\images\slide8.jpg" />
+    <Content Include="Content\images\slider-icons.png" />
+    <Content Include="Content\images\slider_bg1.jpg" />
+    <Content Include="Content\images\step1.png" />
+    <Content Include="Content\images\step2.png" />
+    <Content Include="Content\images\step3.png" />
+    <Content Include="Content\images\top-move.jpg" />
+    <Content Include="Content\images\twitter.png" />
+    <Content Include="Content\images\upload.png" />
+    <Content Include="Content\images\user2-160x160.jpg" />
+    <Content Include="Content\images\view.png" />
+    <Content Include="Content\js\app.min.js" />
+    <Content Include="Content\js\bootstrap.min.js" />
+    <Content Include="Content\js\dataTables.bootstrap.min.js" />
+    <Content Include="Content\js\demo.js" />
+    <Content Include="Content\js\easing.js" />
+    <Content Include="Content\js\fastclick.min.js" />
+    <Content Include="Content\js\jquery-2.2.3.min.js" />
+    <Content Include="Content\js\jquery.dataTables.min.js" />
+    <Content Include="Content\js\jquery.min.js" />
+    <Content Include="Content\js\jquery.slimscroll.min.js" />
+    <Content Include="Content\js\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Content\js\jquery.validate.min.js" />
+    <Content Include="Content\js\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Content\js\modernizr.custom.28468.js" />
+    <Content Include="Content\js\move-top.js" />
+    <Content Include="Content\js\myadminscripts.js" />
+    <Content Include="Content\js\mysitescripts.js" />
+    <Content Include="Content\js\order.js" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Models\ICSDataModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ICSDataModel.edmx</DependentUpon>
+      <LastGenOutput>ICSDataModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\ICSDataModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ICSDataModel.edmx</DependentUpon>
+      <LastGenOutput>ICSDataModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AboutController.cs" />
+    <Compile Include="Controllers\About_TranslateController.cs" />
+    <Compile Include="Controllers\_MenuController.cs" />
+    <Compile Include="Controllers\_AboutController.cs" />
+    <Compile Include="Controllers\ChangeLanguageController.cs" />
+    <Compile Include="Controllers\ChatController.cs" />
+    <Compile Include="Controllers\ContactController.cs" />
+    <Compile Include="Controllers\ContractController.cs" />
+    <Compile Include="Controllers\CustomersController.cs" />
+    <Compile Include="Controllers\ErrorPageController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MailController.cs" />
+    <Compile Include="Controllers\NotTranslatedController.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
+    <Compile Include="Controllers\PartialController.cs" />
+    <Compile Include="Controllers\ServicesController.cs" />
+    <Compile Include="Controllers\_AddressController.cs" />
+    <Compile Include="Controllers\_ContactController.cs" />
+    <Compile Include="Controllers\_ContractController.cs" />
+    <Compile Include="Controllers\_LanguageController.cs" />
+    <Compile Include="Controllers\_OrderController.cs" />
+    <Compile Include="Controllers\_SendEmailToController.cs" />
+    <Compile Include="Controllers\_ServicesController.cs" />
+    <Compile Include="Controllers\_Site_ContentController.cs" />
+    <Compile Include="Controllers\_Site_ImagesController.cs" />
+    <Compile Include="Controllers\_SlideController.cs" />
+    <Compile Include="Controllers\_SocialController.cs" />
+    <Compile Include="Controllers\_StepController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\About.cs">
+      <DependentUpon>ICSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\About_Translate.cs">
+      <DependentUpon>ICSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Address.cs">
+      <DependentUpon>ICSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Address_Translate.cs">
+      <DependentUpon>ICSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AdminMerge\AboutAdminMerge.cs" />
+    <Compile Include="Models\AdminMerge\AddressAdminMerge.cs" />
+    <Compile Include="Models\AdminMerge\ContactAdminMerge.cs" />
+    <Compile Include="Models\AdminMerge\LanguageAdminMerge.cs" />
+    <Compile Include="Models\AdminMerge\MenuAdminMerge.cs" />
+    <Compile Include="Models\AdminMerge\SendEmailToAdminMerge.cs" />
+    <Compile Include="Models\AdminMerge\ServicesAdminMerge.cs" />
+    <Compile Include="Models\AdminMerge\Site_ContentsAdminMerge.cs" />
+    <Compile Include="Models\AdminMerge\Site_ImagesAdminMerge.cs" />
+    <Compile Include="Models\AdminMerge\SlideAdminMerge.cs" />
+    <Compile Include="Models\AdminMerge\SocialAdminMerge.cs" />
+    <Compile Include="Models\AdminMerge\StepAdminMerge.cs" />
+    <Compile Include="Models\CaptchaResponse.cs" />
+    <Compile Include="Models\Contact.cs">
+      <DependentUpon>ICSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Contract.cs">
+      <DependentUpon>ICSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Customer.cs">
+      <DependentUpon>ICSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ICSDataModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ICSDataModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ICSDataModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ICSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ICSDataModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ICSDataModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Language.cs">
+      <DependentUpon>ICSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Menu.cs">
+      <DependentUpon>ICSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Menus_Translate.cs">
+      <DependentUpon>ICSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Merge\AboutMerge.cs" />
+    <Compile Include="Models\Merge\ContactMerge.cs" />
+    <Compile Include="Models\Merge\ContractMerge.cs" />
+    <Compile Include="Models\Merge\CustomersMerge.cs" />
+    <Compile Include="Models\Merge\FooterPartialMerge.cs" />
+    <Compile Include="Models\Merge\HeaderPartialMerge.cs" />
+    <Compile Include="Models\Merge\HomeMerge.cs" />
+    <Compile Include="Models\Merge\OrderServiceMerge.cs" />
+    <Compile Include="Models\Merge\OrdersMerge.cs" />
+    <Compile Include="Models\Merge\ServicesMerge.cs" />
+    <Compile Include="Models\Order.cs">
+      <DependentUpon>ICSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Order_Services.cs">
+      <DependentUpon>ICSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SendEmail.cs" />
+    <Compile Include="Models\SendEmailTo.cs">
+      <DependentUpon>ICSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Service.cs">
+      <DependentUpon>ICSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ServicesForOrder.cs" />
+    <Compile Include="Models\Services_Translate.cs">
+      <DependentUpon>ICSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Site_Contents.cs">
+      <DependentUpon>ICSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Site_Images.cs">
+      <DependentUpon>ICSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Slide.cs">
+      <DependentUpon>ICSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Slide_Translate.cs">
+      <DependentUpon>ICSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Social.cs">
+      <DependentUpon>ICSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Step.cs">
+      <DependentUpon>ICSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Steps_Translate.cs">
+      <DependentUpon>ICSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilities\CurrentLanguage.cs" />
+    <Compile Include="Utilities\CustomMethods.cs" />
+    <Compile Include="Utilities\Encryption.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <Content Include="packages.config" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\About\Index.cshtml" />
+    <Content Include="Views\Contact\Index.cshtml" />
+    <Content Include="Views\Customers\Index.cshtml" />
+    <Content Include="Views\Services\Index.cshtml" />
+    <Content Include="Views\Partial\_HeaderPartial.cshtml" />
+    <Content Include="Views\Partial\_FooterPartial.cshtml" />
+    <Content Include="Content\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\fonts\FontAwesome.otf" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff2" />
+    <EntityDeploy Include="Models\ICSDataModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ICSDataModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\ICSDataModel.edmx.diagram">
+      <DependentUpon>ICSDataModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Views\ErrorPage\Badrequest.cshtml" />
+    <Content Include="Views\ErrorPage\DefaultErrorpage.cshtml" />
+    <Content Include="Views\ErrorPage\Forbidden.cshtml" />
+    <Content Include="Views\ErrorPage\NotFound.cshtml" />
+    <Content Include="Views\ErrorPage\ServerError.cshtml" />
+    <Content Include="Views\Order\Index.cshtml" />
+    <Content Include="Content\files\contract_form.doc" />
+    <None Include="Properties\PublishProfiles\ICS.pubxml" />
+    <Content Include="Views\Contract\Index.cshtml" />
+    <Content Include="Views\Shared\_Admin.cshtml" />
+    <Content Include="Views\Shared\_Login.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\_About\Index.cshtml" />
+    <Content Include="Views\_Services\Index.cshtml" />
+    <Content Include="Views\_Slide\Index.cshtml" />
+    <Content Include="Views\_Address\Index.cshtml" />
+    <Content Include="Views\_Contact\Index.cshtml" />
+    <Content Include="Views\_Contract\Index.cshtml" />
+    <Content Include="Views\_SendEmailTo\Index.cshtml" />
+    <Content Include="Views\_Order\Index.cshtml" />
+    <Content Include="Views\_Language\Index.cshtml" />
+    <Content Include="Views\_Menu\Index.cshtml" />
+    <Content Include="Views\_Step\Index.cshtml" />
+    <Content Include="Views\_Social\Index.cshtml" />
+    <Content Include="Views\_Site_Images\Index.cshtml" />
+    <Content Include="Views\_Site_Content\Index.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>49482</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:49482/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

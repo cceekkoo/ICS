@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="bceb55228aa549a3accea03709880e77" Name="Diagram1">
+        <EntityTypeShape EntityType="Models.About" Width="1.5" PointX="3.75" PointY="5.125" />
+        <EntityTypeShape EntityType="Models.About_Translate" Width="1.5" PointX="6" PointY="6.75" />
+        <EntityTypeShape EntityType="Models.Address" Width="1.5" PointX="0.75" PointY="7.125" />
+        <EntityTypeShape EntityType="Models.Address_Translate" Width="1.5" PointX="3" PointY="7.75" />
+        <EntityTypeShape EntityType="Models.Contact" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="Models.Contract" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="Models.Customer" Width="1.5" PointX="4.75" PointY="0.75" />
+        <EntityTypeShape EntityType="Models.Language" Width="1.5" PointX="0.75" PointY="10.25" />
+        <EntityTypeShape EntityType="Models.Menu" Width="1.5" PointX="3.75" PointY="19.875" />
+        <EntityTypeShape EntityType="Models.Menus_Translate" Width="1.5" PointX="6" PointY="13.75" />
+        <EntityTypeShape EntityType="Models.Order_Services" Width="1.5" PointX="6" PointY="16.875" />
+        <EntityTypeShape EntityType="Models.Order" Width="1.5" PointX="3.75" PointY="29.625" />
+        <EntityTypeShape EntityType="Models.SendEmailTo" Width="1.5" PointX="0.75" PointY="4.75" />
+        <EntityTypeShape EntityType="Models.Service" Width="1.5" PointX="4.25" PointY="17" />
+        <EntityTypeShape EntityType="Models.Services_Translate" Width="1.5" PointX="6" PointY="10.75" />
+        <EntityTypeShape EntityType="Models.Site_Contents" Width="1.5" PointX="1.75" PointY="21.125" />
+        <EntityTypeShape EntityType="Models.Site_Images" Width="1.5" PointX="5.75" PointY="3.75" />
+        <EntityTypeShape EntityType="Models.Slide" Width="1.5" PointX="0.75" PointY="15.125" />
+        <EntityTypeShape EntityType="Models.Slide_Translate" Width="1.5" PointX="3" PointY="10.75" />
+        <EntityTypeShape EntityType="Models.Social" Width="1.5" PointX="6.75" PointY="0.75" />
+        <EntityTypeShape EntityType="Models.Step" Width="1.5" PointX="0.75" PointY="18" />
+        <EntityTypeShape EntityType="Models.Steps_Translate" Width="1.5" PointX="2.5" PointY="17.5" />
+        <AssociationConnector Association="Models.FK_About_Translate_About" />
+        <AssociationConnector Association="Models.FK_About_Translate_Languages" />
+        <AssociationConnector Association="Models.FK_Address_Translate_Address" />
+        <AssociationConnector Association="Models.FK_Address_Translate_Languages" />
+        <AssociationConnector Association="Models.FK_Menus_Translate_Languages" />
+        <AssociationConnector Association="Models.FK_Services_Translate_Languages" />
+        <AssociationConnector Association="Models.FK_Site_Contents_Languages" />
+        <AssociationConnector Association="Models.FK_Slide_Translate_Languages" />
+        <AssociationConnector Association="Models.FK_Steps_Translate_Languages" />
+        <AssociationConnector Association="Models.FK_Menus_Translate_Menus" />
+        <AssociationConnector Association="Models.FK_Order_Services_Orders" />
+        <AssociationConnector Association="Models.FK_Order_Services_Services" />
+        <AssociationConnector Association="Models.FK_Services_Translate_Services" />
+        <AssociationConnector Association="Models.FK_Slide_Translate_Slide" />
+        <AssociationConnector Association="Models.FK_Steps_Translate_Steps" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

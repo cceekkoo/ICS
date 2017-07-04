@@ -1,0 +1,40 @@
+﻿@using ICS.Models
+@model ICS.Models.Merge.CustomersMerge
+@{
+    List<Customer> customers = Model.customers.ToList();
+    int count = customers.Count % 3 == 0 ? customers.Count / 3 : customers.Count / 3 + 1;
+}
+
+<!-- start top_bg -->
+<div class="top_bg">
+    <div class="wrap">
+        <div class="top">
+            <h2 class="header-font">@Model.menu</h2>
+        </div>
+    </div>
+</div>
+<!-- start main -->
+<!-- start main_bg -->
+<div class="main_bg">
+    <div class="wrap">
+        <div class="main content_top">
+            <!-- start span_of_3 -->
+            @for (int i = 0; i < count; i++)
+            {
+                <div class="span_of_3">
+                    @for (int j = 3 * i; j < (3 * i + 3 > customers.Count? customers.Count : 3 * i + 3); j++)
+                    {
+                        <div class="span1_of_3">
+                            <span><img src="~/Content/images/@customers[j].image" alt="" /></span>
+                            <div class="span1_of_3_text">
+                                <h3><span>@customers[j].Text</span></h3>
+                            </div>
+                        </div>
+                    }
+                    <div class="clear"></div>
+                </div>
+            }
+            <!-- end grids_of_3 -->
+        </div>
+    </div>
+</div>

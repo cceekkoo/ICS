@@ -1,0 +1,29 @@
+﻿@model QSZ.Models.Login
+
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Login.cshtml";
+}
+<script src="~/Content/js/jquery.validate.min.js"></script>
+<script src="~/Content/js/jquery.validate.unobtrusive.min.js"></script>
+
+<div class="login-page">
+    <div class="form">
+        @using (Html.BeginForm("Login", "Account", FormMethod.Post, new { @class = "login-form" }))
+        {
+            @Html.AntiForgeryToken();
+            @Html.ValidationSummary(true);
+            <div class="row">
+                @Html.EditorFor(x => x.Username, new { htmlAttributes = new { @placeholder = "Username" } })
+                @Html.ValidationMessageFor(x => x.Username)
+            </div>
+            <div class="row">
+                @Html.EditorFor(x => x.Password, new { htmlAttributes = new { @placeholder = "Password", @type = "password", @Value = "" } })
+                @Html.ValidationMessageFor(x => x.Password)
+            </div>
+            <input type="submit" id="login" value="Login" />
+
+        }
+        <p class="text-danger">@ViewBag.Message</p>
+    </div>
+</div>

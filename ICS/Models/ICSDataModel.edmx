@@ -1,0 +1,1236 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Models.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="About">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="image" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="About_Translate">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Text" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Value_ID" Type="int" Nullable="false" />
+          <Property Name="Language_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Address">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="icon" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Address_Translate">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Text" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Value_ID" Type="int" Nullable="false" />
+          <Property Name="Language_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Contact">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Text" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="icon" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Contracts">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Company_Name" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Company_Manager" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Company_VOEN" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Bank_Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Settlement_Account" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Code" Type="int" Nullable="false" />
+          <Property Name="Bank_VOEN" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Correspondent_Account" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Swift" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Send_Date" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Customers">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Text" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="image" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Languages">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Language_Short" Type="nchar" MaxLength="2" Nullable="false" />
+          <Property Name="Language_Full" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ForCaptcha" Type="nchar" MaxLength="2" Nullable="false" />
+          <Property Name="image" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Menus">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Url" Type="nvarchar(max)" />
+          <Property Name="Sorting" Type="int" Nullable="false" />
+          <Property Name="Parent_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="Menus_Translate">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Text" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Value_ID" Type="int" Nullable="false" />
+          <Property Name="Language_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Order_Services">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Order_ID" Type="int" Nullable="false" />
+          <Property Name="Service_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Orders">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Company_Name" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="VOEN" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Contact_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Additional_Order" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="SendEmailTo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Services">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="image" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Services_Translate">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Text" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Value_ID" Type="int" Nullable="false" />
+          <Property Name="Language_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Site_Contents">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Text" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Value_ID" Type="int" Nullable="false" />
+          <Property Name="Language_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Site_Images">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="image" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Slide">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="image" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Slide_Translate">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Text" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Value_ID" Type="int" Nullable="false" />
+          <Property Name="Language_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Socials">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Url" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="image" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Steps">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="image" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Url" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Steps_Translate">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Text" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Value_ID" Type="int" Nullable="false" />
+          <Property Name="Language_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_About_Translate_About">
+          <End Role="About" Type="Self.About" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="About_Translate" Type="Self.About_Translate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="About">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="About_Translate">
+              <PropertyRef Name="Value_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_About_Translate_Languages">
+          <End Role="Languages" Type="Self.Languages" Multiplicity="1" />
+          <End Role="About_Translate" Type="Self.About_Translate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Languages">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="About_Translate">
+              <PropertyRef Name="Language_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Address_Translate_Address">
+          <End Role="Address" Type="Self.Address" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Address_Translate" Type="Self.Address_Translate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Address">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Address_Translate">
+              <PropertyRef Name="Value_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Address_Translate_Languages">
+          <End Role="Languages" Type="Self.Languages" Multiplicity="1" />
+          <End Role="Address_Translate" Type="Self.Address_Translate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Languages">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Address_Translate">
+              <PropertyRef Name="Language_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Menus_Translate_Languages">
+          <End Role="Languages" Type="Self.Languages" Multiplicity="1" />
+          <End Role="Menus_Translate" Type="Self.Menus_Translate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Languages">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Menus_Translate">
+              <PropertyRef Name="Language_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Menus_Translate_Menus">
+          <End Role="Menus" Type="Self.Menus" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Menus_Translate" Type="Self.Menus_Translate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Menus">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Menus_Translate">
+              <PropertyRef Name="Value_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Services_Orders">
+          <End Role="Orders" Type="Self.Orders" Multiplicity="1" />
+          <End Role="Order_Services" Type="Self.Order_Services" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Order_Services">
+              <PropertyRef Name="Order_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Services_Services">
+          <End Role="Services" Type="Self.Services" Multiplicity="1" />
+          <End Role="Order_Services" Type="Self.Order_Services" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Services">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Order_Services">
+              <PropertyRef Name="Service_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Services_Translate_Languages">
+          <End Role="Languages" Type="Self.Languages" Multiplicity="1" />
+          <End Role="Services_Translate" Type="Self.Services_Translate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Languages">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Services_Translate">
+              <PropertyRef Name="Language_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Services_Translate_Services">
+          <End Role="Services" Type="Self.Services" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Services_Translate" Type="Self.Services_Translate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Services">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Services_Translate">
+              <PropertyRef Name="Value_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Site_Contents_Languages">
+          <End Role="Languages" Type="Self.Languages" Multiplicity="1" />
+          <End Role="Site_Contents" Type="Self.Site_Contents" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Languages">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Site_Contents">
+              <PropertyRef Name="Language_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Slide_Translate_Languages">
+          <End Role="Languages" Type="Self.Languages" Multiplicity="1" />
+          <End Role="Slide_Translate" Type="Self.Slide_Translate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Languages">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Slide_Translate">
+              <PropertyRef Name="Language_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Slide_Translate_Slide">
+          <End Role="Slide" Type="Self.Slide" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Slide_Translate" Type="Self.Slide_Translate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Slide">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Slide_Translate">
+              <PropertyRef Name="Value_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Steps_Translate_Languages">
+          <End Role="Languages" Type="Self.Languages" Multiplicity="1" />
+          <End Role="Steps_Translate" Type="Self.Steps_Translate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Languages">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Steps_Translate">
+              <PropertyRef Name="Language_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Steps_Translate_Steps">
+          <End Role="Steps" Type="Self.Steps" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Steps_Translate" Type="Self.Steps_Translate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Steps">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Steps_Translate">
+              <PropertyRef Name="Value_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ModelsStoreContainer">
+          <EntitySet Name="About" EntityType="Self.About" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="About_Translate" EntityType="Self.About_Translate" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Address" EntityType="Self.Address" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Address_Translate" EntityType="Self.Address_Translate" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Contact" EntityType="Self.Contact" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Contracts" EntityType="Self.Contracts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Languages" EntityType="Self.Languages" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Menus" EntityType="Self.Menus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Menus_Translate" EntityType="Self.Menus_Translate" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Order_Services" EntityType="Self.Order_Services" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SendEmailTo" EntityType="Self.SendEmailTo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Services" EntityType="Self.Services" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Services_Translate" EntityType="Self.Services_Translate" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Site_Contents" EntityType="Self.Site_Contents" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Site_Images" EntityType="Self.Site_Images" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Slide" EntityType="Self.Slide" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Slide_Translate" EntityType="Self.Slide_Translate" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Socials" EntityType="Self.Socials" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Steps" EntityType="Self.Steps" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Steps_Translate" EntityType="Self.Steps_Translate" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_About_Translate_About" Association="Self.FK_About_Translate_About">
+            <End Role="About" EntitySet="About" />
+            <End Role="About_Translate" EntitySet="About_Translate" />
+          </AssociationSet>
+          <AssociationSet Name="FK_About_Translate_Languages" Association="Self.FK_About_Translate_Languages">
+            <End Role="Languages" EntitySet="Languages" />
+            <End Role="About_Translate" EntitySet="About_Translate" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Address_Translate_Address" Association="Self.FK_Address_Translate_Address">
+            <End Role="Address" EntitySet="Address" />
+            <End Role="Address_Translate" EntitySet="Address_Translate" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Address_Translate_Languages" Association="Self.FK_Address_Translate_Languages">
+            <End Role="Languages" EntitySet="Languages" />
+            <End Role="Address_Translate" EntitySet="Address_Translate" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Menus_Translate_Languages" Association="Self.FK_Menus_Translate_Languages">
+            <End Role="Languages" EntitySet="Languages" />
+            <End Role="Menus_Translate" EntitySet="Menus_Translate" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Menus_Translate_Menus" Association="Self.FK_Menus_Translate_Menus">
+            <End Role="Menus" EntitySet="Menus" />
+            <End Role="Menus_Translate" EntitySet="Menus_Translate" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Services_Orders" Association="Self.FK_Order_Services_Orders">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="Order_Services" EntitySet="Order_Services" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Services_Services" Association="Self.FK_Order_Services_Services">
+            <End Role="Services" EntitySet="Services" />
+            <End Role="Order_Services" EntitySet="Order_Services" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Services_Translate_Languages" Association="Self.FK_Services_Translate_Languages">
+            <End Role="Languages" EntitySet="Languages" />
+            <End Role="Services_Translate" EntitySet="Services_Translate" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Services_Translate_Services" Association="Self.FK_Services_Translate_Services">
+            <End Role="Services" EntitySet="Services" />
+            <End Role="Services_Translate" EntitySet="Services_Translate" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Site_Contents_Languages" Association="Self.FK_Site_Contents_Languages">
+            <End Role="Languages" EntitySet="Languages" />
+            <End Role="Site_Contents" EntitySet="Site_Contents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Slide_Translate_Languages" Association="Self.FK_Slide_Translate_Languages">
+            <End Role="Languages" EntitySet="Languages" />
+            <End Role="Slide_Translate" EntitySet="Slide_Translate" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Slide_Translate_Slide" Association="Self.FK_Slide_Translate_Slide">
+            <End Role="Slide" EntitySet="Slide" />
+            <End Role="Slide_Translate" EntitySet="Slide_Translate" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Steps_Translate_Languages" Association="Self.FK_Steps_Translate_Languages">
+            <End Role="Languages" EntitySet="Languages" />
+            <End Role="Steps_Translate" EntitySet="Steps_Translate" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Steps_Translate_Steps" Association="Self.FK_Steps_Translate_Steps">
+            <End Role="Steps" EntitySet="Steps" />
+            <End Role="Steps_Translate" EntitySet="Steps_Translate" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Models" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="ICSDBContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Abouts" EntityType="Models.About" />
+          <EntitySet Name="About_Translate" EntityType="Models.About_Translate" />
+          <EntitySet Name="Addresses" EntityType="Models.Address" />
+          <EntitySet Name="Address_Translate" EntityType="Models.Address_Translate" />
+          <EntitySet Name="Contacts" EntityType="Models.Contact" />
+          <EntitySet Name="Contracts" EntityType="Models.Contract" />
+          <EntitySet Name="Customers" EntityType="Models.Customer" />
+          <EntitySet Name="Languages" EntityType="Models.Language" />
+          <EntitySet Name="Menus" EntityType="Models.Menu" />
+          <EntitySet Name="Menus_Translate" EntityType="Models.Menus_Translate" />
+          <EntitySet Name="Order_Services" EntityType="Models.Order_Services" />
+          <EntitySet Name="Orders" EntityType="Models.Order" />
+          <EntitySet Name="SendEmailToes" EntityType="Models.SendEmailTo" />
+          <EntitySet Name="Services" EntityType="Models.Service" />
+          <EntitySet Name="Services_Translate" EntityType="Models.Services_Translate" />
+          <EntitySet Name="Site_Contents" EntityType="Models.Site_Contents" />
+          <EntitySet Name="Site_Images" EntityType="Models.Site_Images" />
+          <EntitySet Name="Slides" EntityType="Models.Slide" />
+          <EntitySet Name="Slide_Translate" EntityType="Models.Slide_Translate" />
+          <EntitySet Name="Socials" EntityType="Models.Social" />
+          <EntitySet Name="Steps" EntityType="Models.Step" />
+          <EntitySet Name="Steps_Translate" EntityType="Models.Steps_Translate" />
+          <AssociationSet Name="FK_About_Translate_About" Association="Models.FK_About_Translate_About">
+            <End Role="About" EntitySet="Abouts" />
+            <End Role="About_Translate" EntitySet="About_Translate" />
+          </AssociationSet>
+          <AssociationSet Name="FK_About_Translate_Languages" Association="Models.FK_About_Translate_Languages">
+            <End Role="Language" EntitySet="Languages" />
+            <End Role="About_Translate" EntitySet="About_Translate" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Address_Translate_Address" Association="Models.FK_Address_Translate_Address">
+            <End Role="Address" EntitySet="Addresses" />
+            <End Role="Address_Translate" EntitySet="Address_Translate" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Address_Translate_Languages" Association="Models.FK_Address_Translate_Languages">
+            <End Role="Language" EntitySet="Languages" />
+            <End Role="Address_Translate" EntitySet="Address_Translate" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Menus_Translate_Languages" Association="Models.FK_Menus_Translate_Languages">
+            <End Role="Language" EntitySet="Languages" />
+            <End Role="Menus_Translate" EntitySet="Menus_Translate" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Services_Translate_Languages" Association="Models.FK_Services_Translate_Languages">
+            <End Role="Language" EntitySet="Languages" />
+            <End Role="Services_Translate" EntitySet="Services_Translate" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Site_Contents_Languages" Association="Models.FK_Site_Contents_Languages">
+            <End Role="Language" EntitySet="Languages" />
+            <End Role="Site_Contents" EntitySet="Site_Contents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Slide_Translate_Languages" Association="Models.FK_Slide_Translate_Languages">
+            <End Role="Language" EntitySet="Languages" />
+            <End Role="Slide_Translate" EntitySet="Slide_Translate" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Steps_Translate_Languages" Association="Models.FK_Steps_Translate_Languages">
+            <End Role="Language" EntitySet="Languages" />
+            <End Role="Steps_Translate" EntitySet="Steps_Translate" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Menus_Translate_Menus" Association="Models.FK_Menus_Translate_Menus">
+            <End Role="Menu" EntitySet="Menus" />
+            <End Role="Menus_Translate" EntitySet="Menus_Translate" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Services_Orders" Association="Models.FK_Order_Services_Orders">
+            <End Role="Order" EntitySet="Orders" />
+            <End Role="Order_Services" EntitySet="Order_Services" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Services_Services" Association="Models.FK_Order_Services_Services">
+            <End Role="Service" EntitySet="Services" />
+            <End Role="Order_Services" EntitySet="Order_Services" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Services_Translate_Services" Association="Models.FK_Services_Translate_Services">
+            <End Role="Service" EntitySet="Services" />
+            <End Role="Services_Translate" EntitySet="Services_Translate" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Slide_Translate_Slide" Association="Models.FK_Slide_Translate_Slide">
+            <End Role="Slide" EntitySet="Slides" />
+            <End Role="Slide_Translate" EntitySet="Slide_Translate" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Steps_Translate_Steps" Association="Models.FK_Steps_Translate_Steps">
+            <End Role="Step" EntitySet="Steps" />
+            <End Role="Steps_Translate" EntitySet="Steps_Translate" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="About">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="image" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="About_Translate" Relationship="Models.FK_About_Translate_About" FromRole="About" ToRole="About_Translate" />
+        </EntityType>
+        <EntityType Name="About_Translate">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Text" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Value_ID" Type="Int32" Nullable="false" />
+          <Property Name="Language_ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="About" Relationship="Models.FK_About_Translate_About" FromRole="About_Translate" ToRole="About" />
+          <NavigationProperty Name="Language" Relationship="Models.FK_About_Translate_Languages" FromRole="About_Translate" ToRole="Language" />
+        </EntityType>
+        <EntityType Name="Address">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="icon" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Address_Translate" Relationship="Models.FK_Address_Translate_Address" FromRole="Address" ToRole="Address_Translate" />
+        </EntityType>
+        <EntityType Name="Address_Translate">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Text" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Value_ID" Type="Int32" Nullable="false" />
+          <Property Name="Language_ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Address" Relationship="Models.FK_Address_Translate_Address" FromRole="Address_Translate" ToRole="Address" />
+          <NavigationProperty Name="Language" Relationship="Models.FK_Address_Translate_Languages" FromRole="Address_Translate" ToRole="Language" />
+        </EntityType>
+        <EntityType Name="Contact">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Text" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="icon" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Contract">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Company_Name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Company_Manager" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Company_VOEN" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Bank_Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Settlement_Account" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Code" Type="Int32" Nullable="false" />
+          <Property Name="Bank_VOEN" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Correspondent_Account" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Swift" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Send_Date" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Text" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="image" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Language">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Language_Short" Type="String" Nullable="false" MaxLength="2" FixedLength="true" Unicode="true" />
+          <Property Name="Language_Full" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ForCaptcha" Type="String" Nullable="false" MaxLength="2" FixedLength="true" Unicode="true" />
+          <Property Name="image" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="About_Translate" Relationship="Models.FK_About_Translate_Languages" FromRole="Language" ToRole="About_Translate" />
+          <NavigationProperty Name="Address_Translate" Relationship="Models.FK_Address_Translate_Languages" FromRole="Language" ToRole="Address_Translate" />
+          <NavigationProperty Name="Menus_Translate" Relationship="Models.FK_Menus_Translate_Languages" FromRole="Language" ToRole="Menus_Translate" />
+          <NavigationProperty Name="Services_Translate" Relationship="Models.FK_Services_Translate_Languages" FromRole="Language" ToRole="Services_Translate" />
+          <NavigationProperty Name="Site_Contents" Relationship="Models.FK_Site_Contents_Languages" FromRole="Language" ToRole="Site_Contents" />
+          <NavigationProperty Name="Slide_Translate" Relationship="Models.FK_Slide_Translate_Languages" FromRole="Language" ToRole="Slide_Translate" />
+          <NavigationProperty Name="Steps_Translate" Relationship="Models.FK_Steps_Translate_Languages" FromRole="Language" ToRole="Steps_Translate" />
+        </EntityType>
+        <EntityType Name="Menu">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Url" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Sorting" Type="Int32" Nullable="false" />
+          <Property Name="Parent_ID" Type="Int32" />
+          <NavigationProperty Name="Menus_Translate" Relationship="Models.FK_Menus_Translate_Menus" FromRole="Menu" ToRole="Menus_Translate" />
+        </EntityType>
+        <EntityType Name="Menus_Translate">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Text" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Value_ID" Type="Int32" Nullable="false" />
+          <Property Name="Language_ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Language" Relationship="Models.FK_Menus_Translate_Languages" FromRole="Menus_Translate" ToRole="Language" />
+          <NavigationProperty Name="Menu" Relationship="Models.FK_Menus_Translate_Menus" FromRole="Menus_Translate" ToRole="Menu" />
+        </EntityType>
+        <EntityType Name="Order_Services">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Order_ID" Type="Int32" Nullable="false" />
+          <Property Name="Service_ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Order" Relationship="Models.FK_Order_Services_Orders" FromRole="Order_Services" ToRole="Order" />
+          <NavigationProperty Name="Service" Relationship="Models.FK_Order_Services_Services" FromRole="Order_Services" ToRole="Service" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Company_Name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="VOEN" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Contact_Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Additional_Order" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Order_Services" Relationship="Models.FK_Order_Services_Orders" FromRole="Order" ToRole="Order_Services" />
+        </EntityType>
+        <EntityType Name="SendEmailTo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Service">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="image" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Order_Services" Relationship="Models.FK_Order_Services_Services" FromRole="Service" ToRole="Order_Services" />
+          <NavigationProperty Name="Services_Translate" Relationship="Models.FK_Services_Translate_Services" FromRole="Service" ToRole="Services_Translate" />
+        </EntityType>
+        <EntityType Name="Services_Translate">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Text" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Value_ID" Type="Int32" Nullable="false" />
+          <Property Name="Language_ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Language" Relationship="Models.FK_Services_Translate_Languages" FromRole="Services_Translate" ToRole="Language" />
+          <NavigationProperty Name="Service" Relationship="Models.FK_Services_Translate_Services" FromRole="Services_Translate" ToRole="Service" />
+        </EntityType>
+        <EntityType Name="Site_Contents">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Text" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Value_ID" Type="Int32" Nullable="false" />
+          <Property Name="Language_ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Language" Relationship="Models.FK_Site_Contents_Languages" FromRole="Site_Contents" ToRole="Language" />
+        </EntityType>
+        <EntityType Name="Site_Images">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="image" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Slide">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="image" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Slide_Translate" Relationship="Models.FK_Slide_Translate_Slide" FromRole="Slide" ToRole="Slide_Translate" />
+        </EntityType>
+        <EntityType Name="Slide_Translate">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Text" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Value_ID" Type="Int32" Nullable="false" />
+          <Property Name="Language_ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Language" Relationship="Models.FK_Slide_Translate_Languages" FromRole="Slide_Translate" ToRole="Language" />
+          <NavigationProperty Name="Slide" Relationship="Models.FK_Slide_Translate_Slide" FromRole="Slide_Translate" ToRole="Slide" />
+        </EntityType>
+        <EntityType Name="Social">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Url" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="image" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Step">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="image" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Url" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Steps_Translate" Relationship="Models.FK_Steps_Translate_Steps" FromRole="Step" ToRole="Steps_Translate" />
+        </EntityType>
+        <EntityType Name="Steps_Translate">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Text" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Value_ID" Type="Int32" Nullable="false" />
+          <Property Name="Language_ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Language" Relationship="Models.FK_Steps_Translate_Languages" FromRole="Steps_Translate" ToRole="Language" />
+          <NavigationProperty Name="Step" Relationship="Models.FK_Steps_Translate_Steps" FromRole="Steps_Translate" ToRole="Step" />
+        </EntityType>
+        <Association Name="FK_About_Translate_About">
+          <End Type="Models.About" Role="About" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="Models.About_Translate" Role="About_Translate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="About">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="About_Translate">
+              <PropertyRef Name="Value_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_About_Translate_Languages">
+          <End Type="Models.Language" Role="Language" Multiplicity="1" />
+          <End Type="Models.About_Translate" Role="About_Translate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Language">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="About_Translate">
+              <PropertyRef Name="Language_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Address_Translate_Address">
+          <End Type="Models.Address" Role="Address" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="Models.Address_Translate" Role="Address_Translate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Address">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Address_Translate">
+              <PropertyRef Name="Value_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Address_Translate_Languages">
+          <End Type="Models.Language" Role="Language" Multiplicity="1" />
+          <End Type="Models.Address_Translate" Role="Address_Translate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Language">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Address_Translate">
+              <PropertyRef Name="Language_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Menus_Translate_Languages">
+          <End Type="Models.Language" Role="Language" Multiplicity="1" />
+          <End Type="Models.Menus_Translate" Role="Menus_Translate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Language">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Menus_Translate">
+              <PropertyRef Name="Language_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Services_Translate_Languages">
+          <End Type="Models.Language" Role="Language" Multiplicity="1" />
+          <End Type="Models.Services_Translate" Role="Services_Translate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Language">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Services_Translate">
+              <PropertyRef Name="Language_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Site_Contents_Languages">
+          <End Type="Models.Language" Role="Language" Multiplicity="1" />
+          <End Type="Models.Site_Contents" Role="Site_Contents" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Language">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Site_Contents">
+              <PropertyRef Name="Language_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Slide_Translate_Languages">
+          <End Type="Models.Language" Role="Language" Multiplicity="1" />
+          <End Type="Models.Slide_Translate" Role="Slide_Translate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Language">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Slide_Translate">
+              <PropertyRef Name="Language_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Steps_Translate_Languages">
+          <End Type="Models.Language" Role="Language" Multiplicity="1" />
+          <End Type="Models.Steps_Translate" Role="Steps_Translate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Language">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Steps_Translate">
+              <PropertyRef Name="Language_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Menus_Translate_Menus">
+          <End Type="Models.Menu" Role="Menu" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="Models.Menus_Translate" Role="Menus_Translate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Menu">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Menus_Translate">
+              <PropertyRef Name="Value_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Services_Orders">
+          <End Type="Models.Order" Role="Order" Multiplicity="1" />
+          <End Type="Models.Order_Services" Role="Order_Services" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Order_Services">
+              <PropertyRef Name="Order_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Services_Services">
+          <End Type="Models.Service" Role="Service" Multiplicity="1" />
+          <End Type="Models.Order_Services" Role="Order_Services" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Service">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Order_Services">
+              <PropertyRef Name="Service_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Services_Translate_Services">
+          <End Type="Models.Service" Role="Service" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="Models.Services_Translate" Role="Services_Translate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Service">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Services_Translate">
+              <PropertyRef Name="Value_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Slide_Translate_Slide">
+          <End Type="Models.Slide" Role="Slide" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="Models.Slide_Translate" Role="Slide_Translate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Slide">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Slide_Translate">
+              <PropertyRef Name="Value_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Steps_Translate_Steps">
+          <End Type="Models.Step" Role="Step" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="Models.Steps_Translate" Role="Steps_Translate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Step">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Steps_Translate">
+              <PropertyRef Name="Value_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelsStoreContainer" CdmEntityContainer="ICSDBContext">
+          <EntitySetMapping Name="Abouts">
+            <EntityTypeMapping TypeName="Models.About">
+              <MappingFragment StoreEntitySet="About">
+                <ScalarProperty Name="image" ColumnName="image" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="About_Translate">
+            <EntityTypeMapping TypeName="Models.About_Translate">
+              <MappingFragment StoreEntitySet="About_Translate">
+                <ScalarProperty Name="Language_ID" ColumnName="Language_ID" />
+                <ScalarProperty Name="Value_ID" ColumnName="Value_ID" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Addresses">
+            <EntityTypeMapping TypeName="Models.Address">
+              <MappingFragment StoreEntitySet="Address">
+                <ScalarProperty Name="icon" ColumnName="icon" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Address_Translate">
+            <EntityTypeMapping TypeName="Models.Address_Translate">
+              <MappingFragment StoreEntitySet="Address_Translate">
+                <ScalarProperty Name="Language_ID" ColumnName="Language_ID" />
+                <ScalarProperty Name="Value_ID" ColumnName="Value_ID" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Contacts">
+            <EntityTypeMapping TypeName="Models.Contact">
+              <MappingFragment StoreEntitySet="Contact">
+                <ScalarProperty Name="icon" ColumnName="icon" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Contracts">
+            <EntityTypeMapping TypeName="Models.Contract">
+              <MappingFragment StoreEntitySet="Contracts">
+                <ScalarProperty Name="Send_Date" ColumnName="Send_Date" />
+                <ScalarProperty Name="Swift" ColumnName="Swift" />
+                <ScalarProperty Name="Correspondent_Account" ColumnName="Correspondent_Account" />
+                <ScalarProperty Name="Bank_VOEN" ColumnName="Bank_VOEN" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Settlement_Account" ColumnName="Settlement_Account" />
+                <ScalarProperty Name="Bank_Name" ColumnName="Bank_Name" />
+                <ScalarProperty Name="Company_VOEN" ColumnName="Company_VOEN" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Company_Manager" ColumnName="Company_Manager" />
+                <ScalarProperty Name="Company_Name" ColumnName="Company_Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="Models.Customer">
+              <MappingFragment StoreEntitySet="Customers">
+                <ScalarProperty Name="image" ColumnName="image" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Languages">
+            <EntityTypeMapping TypeName="Models.Language">
+              <MappingFragment StoreEntitySet="Languages">
+                <ScalarProperty Name="image" ColumnName="image" />
+                <ScalarProperty Name="ForCaptcha" ColumnName="ForCaptcha" />
+                <ScalarProperty Name="Language_Full" ColumnName="Language_Full" />
+                <ScalarProperty Name="Language_Short" ColumnName="Language_Short" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Menus">
+            <EntityTypeMapping TypeName="Models.Menu">
+              <MappingFragment StoreEntitySet="Menus">
+                <ScalarProperty Name="Parent_ID" ColumnName="Parent_ID" />
+                <ScalarProperty Name="Sorting" ColumnName="Sorting" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Menus_Translate">
+            <EntityTypeMapping TypeName="Models.Menus_Translate">
+              <MappingFragment StoreEntitySet="Menus_Translate">
+                <ScalarProperty Name="Language_ID" ColumnName="Language_ID" />
+                <ScalarProperty Name="Value_ID" ColumnName="Value_ID" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Order_Services">
+            <EntityTypeMapping TypeName="Models.Order_Services">
+              <MappingFragment StoreEntitySet="Order_Services">
+                <ScalarProperty Name="Service_ID" ColumnName="Service_ID" />
+                <ScalarProperty Name="Order_ID" ColumnName="Order_ID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Orders">
+            <EntityTypeMapping TypeName="Models.Order">
+              <MappingFragment StoreEntitySet="Orders">
+                <ScalarProperty Name="Additional_Order" ColumnName="Additional_Order" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Contact_Name" ColumnName="Contact_Name" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="VOEN" ColumnName="VOEN" />
+                <ScalarProperty Name="Company_Name" ColumnName="Company_Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SendEmailToes">
+            <EntityTypeMapping TypeName="Models.SendEmailTo">
+              <MappingFragment StoreEntitySet="SendEmailTo">
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Services">
+            <EntityTypeMapping TypeName="Models.Service">
+              <MappingFragment StoreEntitySet="Services">
+                <ScalarProperty Name="image" ColumnName="image" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Services_Translate">
+            <EntityTypeMapping TypeName="Models.Services_Translate">
+              <MappingFragment StoreEntitySet="Services_Translate">
+                <ScalarProperty Name="Language_ID" ColumnName="Language_ID" />
+                <ScalarProperty Name="Value_ID" ColumnName="Value_ID" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Site_Contents">
+            <EntityTypeMapping TypeName="Models.Site_Contents">
+              <MappingFragment StoreEntitySet="Site_Contents">
+                <ScalarProperty Name="Language_ID" ColumnName="Language_ID" />
+                <ScalarProperty Name="Value_ID" ColumnName="Value_ID" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Site_Images">
+            <EntityTypeMapping TypeName="Models.Site_Images">
+              <MappingFragment StoreEntitySet="Site_Images">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="image" ColumnName="image" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Slides">
+            <EntityTypeMapping TypeName="Models.Slide">
+              <MappingFragment StoreEntitySet="Slide">
+                <ScalarProperty Name="image" ColumnName="image" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Slide_Translate">
+            <EntityTypeMapping TypeName="Models.Slide_Translate">
+              <MappingFragment StoreEntitySet="Slide_Translate">
+                <ScalarProperty Name="Language_ID" ColumnName="Language_ID" />
+                <ScalarProperty Name="Value_ID" ColumnName="Value_ID" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Socials">
+            <EntityTypeMapping TypeName="Models.Social">
+              <MappingFragment StoreEntitySet="Socials">
+                <ScalarProperty Name="image" ColumnName="image" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Steps">
+            <EntityTypeMapping TypeName="Models.Step">
+              <MappingFragment StoreEntitySet="Steps">
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="image" ColumnName="image" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Steps_Translate">
+            <EntityTypeMapping TypeName="Models.Steps_Translate">
+              <MappingFragment StoreEntitySet="Steps_Translate">
+                <ScalarProperty Name="Language_ID" ColumnName="Language_ID" />
+                <ScalarProperty Name="Value_ID" ColumnName="Value_ID" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

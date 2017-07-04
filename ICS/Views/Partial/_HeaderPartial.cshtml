@@ -1,0 +1,120 @@
+﻿@model ICS.Models.Merge.HeaderPartialMerge
+
+<!-- MenuMaker Plugin -->
+<script src="https://s3.amazonaws.com/menumaker/menumaker.min.js"></script>
+
+<style type="text/css">
+
+</style>
+
+<!-- start header -->
+<div class="header_bg">
+    <div class="wrap">
+        <div class="header">
+            <div class="logo">
+                <a href="@Url.Action("", "Home")"><img src="~/Content/images/logo_small.png" alt="" /> </a>
+            </div>
+            <div class="logo_cap">
+                <a class="wide_cap" href="@Url.Action("", "Home")"><span>International </span> <span>Consulting & Solutions</span></a>
+                <a class="short_cap" href="@Url.Action("", "Home")"><span>I</span><span>CS</span></a>
+            </div>
+            <div class="row language">
+                <div class="btn-group language-btn-group">
+                    <button class="dropdown-toggle language-dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+                        <img class="language-image current-language-image" src="~/Content/images/@Model.currentLanguage.image">
+                        <span class="white">@Model.currentLanguage.Language_Short</span>
+                        <i class="fa fa-caret-down white"></i>
+                    </button>
+                    <ul class="dropdown-menu language-dropdown-menu">
+                        @foreach (var item in Model.language)
+                        {
+                            <li><a href="@Url.Action("Index", "ChangeLanguage", new { id = item.ID })"><img class="language-image" src="~/Content/images/@item.image" alt="@item.Language_Full" title="@item.Language_Full">@item.Language_Full</a></li>
+                        }
+                    </ul>
+                </div>
+
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>
+<!-- start header -->
+<div class="header_btm">
+    <div class="wrap">
+        <div class="header_sub">
+
+            <ul class="h_menu">
+                @foreach (var item in Model.menus.Where(x => x.Menu.Parent_ID == null))
+                {
+                    string active = item.Value_ID == Model.activeMenu ? "active" : "";
+                    <li class="@active">
+
+                        @if (Model.menus.Any(x => x.Menu.Parent_ID == item.Value_ID))
+                        {
+                            <a href="#">@item.Text</a>
+                            <ul>
+                                @foreach (var item1 in Model.menus.Where(x => x.Menu.Parent_ID == item.Value_ID))
+                                {
+                                    <li><a href="@Url.Action("", item1.Menu.Url)">@item1.Text</a></li>
+                                }
+                            </ul>
+                        }
+
+                        else
+                        {
+                            <a href="@Url.Action("", item.Menu.Url)">@item.Text</a>
+                        }
+                    </li>
+                }
+            </ul>
+            <div class="social-icons" id="social-icons">
+                <ul>
+                    @foreach (var item in Model.social)
+                    {
+                        <li><a href="@item.Url" target="_blank" style="background: url(../../Content/images/@item.image)"></a></li>
+                    }
+                </ul>
+            </div>
+            <div class="menu" style="display:none;">
+                <ul>
+                    @foreach (var item in Model.menus.Where(x => x.Menu.Parent_ID == null))
+                    {
+                        <li class="">
+                            @if (Model.menus.Any(x => x.Menu.Parent_ID == item.Value_ID))
+                            {
+
+                                <a>
+                                    <p>
+                                        @item.Text
+                                        <span class="caret"></span>
+                                    </p>
+
+                                </a>
+                                <ul class="sub-menu" style="display:none;">
+                                    @foreach (var item1 in Model.menus.Where(x => x.Menu.Parent_ID == item.Value_ID))
+                                    {
+                                        <li><a href="@Url.Action("", item1.Menu.Url)">@item1.Text</a></li>
+                                    }
+                                </ul>
+                            }
+
+                            else
+                            {
+                                <a href="@Url.Action("", item.Menu.Url)">@item.Text</a>
+                            }
+                        </li>
+                    }
+                </ul>
+            </div>
+            <div class="sub-head">
+                <ul>
+                    <li><a href="#" id="menu">@Model.site_Content.Text<span></span></a></li>
+                </ul>
+                <div class="clear"></div>
+            </div>
+
+
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>

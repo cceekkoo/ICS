@@ -1,0 +1,28 @@
+﻿@model ICS.Models.Merge.ServicesMerge
+
+<!-- start top_bg -->
+<div class="top_bg">
+    <div class="wrap">
+        <div class="top">
+            <h2 class="header-font">@Model.menu</h2>
+        </div>
+    </div>
+</div>
+<!-- start main -->
+<div class="wrap">
+    <div class="main">
+        <div class="blog">
+            @foreach (var item in Model.services)
+            {
+                <div class="blog_list">
+                    <h2 class="about-font">@item.Title</h2>
+                    <div class="blog_para">
+                        <img class="col-sm-3" src="~/Content/images/@item.Service.image" alt="" />
+                        <p class="para col-sm-9">@item.Text</p>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

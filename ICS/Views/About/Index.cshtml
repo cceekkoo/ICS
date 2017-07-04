@@ -1,0 +1,29 @@
+﻿@model ICS.Models.Merge.AboutMerge
+
+<!-- start top_bg -->
+<div class="top_bg">
+    <div class="wrap">
+        <div class="top">
+            <h2 class="header-font">@Model.menu</h2>
+        </div>
+    </div>
+</div>
+<!-- start main -->
+<div class="wrap">
+    <div class="main">
+        <div class="about">
+            <div class="cont-grid">
+                <div class="abt-para">
+                    <span></span>
+                    <p class="para about-font">@Html.Raw( @Model.about.Text)</p>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="cont-grid-img img_style">
+                <a><img src="~/Content/images/@Model.about.About.image" alt=""></a>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
