@@ -1,10 +1,7 @@
 ﻿using ICS.Models;
 using ICS.Models.AdminMerge;
-using System;
-using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace ICS.Controllers
@@ -59,6 +56,7 @@ namespace ICS.Controllers
                 ViewBag.Message = "Səhv aşkarlandı. Bir daha yoxlayın";
                 ViewBag.ShowModal = "AddModal";
                 contactAdmin.contact = contact;
+                db = new ICSDBContext();
                 return View("Index", contactAdmin);
             }
         }
@@ -90,6 +88,7 @@ namespace ICS.Controllers
                 ViewBag.Message = "Səhv aşkarlandı. Bir daha yoxlayın";
                 ViewBag.ShowModal = "EditModal";
                 contactAdmin.contact = contact;
+                db = new ICSDBContext();
                 return View("Index", contactAdmin);
             }
         }
@@ -107,11 +106,11 @@ namespace ICS.Controllers
             Contact contact = new Contact();
             try
             {
-                if (id == null) return RedirectToAction("BadRequest", "ErrorPage");
+                if (id == null) return RedirectToAction("Index");
 
                 contact = db.Contacts.Find(id);
 
-                if (contact == null) return RedirectToAction("NotFound", "ErrorPage");
+                if (contact == null) return RedirectToAction("Index");
 
                 db.Contacts.Remove(contact);
                 db.SaveChanges();
@@ -121,8 +120,8 @@ namespace ICS.Controllers
             {
                 ViewBag.Message = "Səhv aşkarlandı. Bir daha yoxlayın";
                 ViewBag.ShowModal = "DeleteModal";
-                ViewBag.Language_ID = new SelectList(db.Languages, "ID", "Language_Short");
                 contactAdmin.contact = contact;
+                db = new ICSDBContext();
                 return View("Index", contactAdmin);
             }
         }

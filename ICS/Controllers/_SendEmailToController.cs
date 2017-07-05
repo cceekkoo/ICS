@@ -1,7 +1,5 @@
 ﻿using ICS.Models;
 using ICS.Models.AdminMerge;
-using System;
-using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
@@ -59,6 +57,7 @@ namespace ICS.Controllers
                 ViewBag.Message = "Səhv aşkarlandı. Bir daha yoxlayın";
                 ViewBag.ShowModal = "AddModal";
                 sendEmailToAdmin.sendEmailTo = sendEmailTo;
+                db = new ICSDBContext();
                 return View("Index", sendEmailToAdmin);
             }
         }
@@ -90,6 +89,7 @@ namespace ICS.Controllers
                 ViewBag.Message = "Səhv aşkarlandı. Bir daha yoxlayın";
                 ViewBag.ShowModal = "EditModal";
                 sendEmailToAdmin.sendEmailTo = sendEmailTo;
+                db = new ICSDBContext();
                 return View("Index", sendEmailToAdmin);
             }
         }
@@ -107,11 +107,11 @@ namespace ICS.Controllers
             SendEmailTo sendEmailTo = new SendEmailTo();
             try
             {
-                if (id == null) return RedirectToAction("BadRequest", "ErrorPage");
+                if (id == null) return RedirectToAction("Index");
 
                 sendEmailTo = db.SendEmailToes.Find(id);
 
-                if (sendEmailTo == null) return RedirectToAction("NotFound", "ErrorPage");
+                if (sendEmailTo == null) return RedirectToAction("Index");
 
                 db.SendEmailToes.Remove(sendEmailTo);
                 db.SaveChanges();
@@ -121,8 +121,9 @@ namespace ICS.Controllers
             {
                 ViewBag.Message = "Səhv aşkarlandı. Bir daha yoxlayın";
                 ViewBag.ShowModal = "DeleteModal";
-                ViewBag.Language_ID = new SelectList(db.Languages, "ID", "Language_Short");
+                
                 sendEmailToAdmin.sendEmailTo = sendEmailTo;
+                db = new ICSDBContext();
                 return View("Index", sendEmailToAdmin);
             }
         }

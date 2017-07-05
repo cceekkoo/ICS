@@ -136,7 +136,6 @@
     <Content Include="Content\css\dataTables.bootstrap.css" />
     <Content Include="Content\css\font-awesome.min.css" />
     <Content Include="Content\css\jquery.dataTables.min.css" />
-    <Content Include="Content\css\login.css" />
     <Content Include="Content\css\myadmin.css" />
     <Content Include="Content\css\skin-blue.min.css" />
     <Content Include="Content\css\style.css" />

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace ICS.Models.AdminMerge
+﻿namespace ICS.Models.AdminMerge
 {
     public class AccountAdminMerge
     {

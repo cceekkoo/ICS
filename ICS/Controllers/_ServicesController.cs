@@ -2,7 +2,6 @@
 using ICS.Models.AdminMerge;
 using ICS.Utilities;
 using System;
-using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
@@ -35,7 +34,7 @@ namespace ICS.Controllers
         
         public ActionResult Index()
         {
-            ViewBag.Language_ID = new SelectList(db.Languages, "ID", "Language_Short");
+            
             return View(servicesAdmin);
         }
 
@@ -83,6 +82,7 @@ namespace ICS.Controllers
                 servicesAdmin.services_Translate = services_Translate;
                 ViewBag.Message = "Səhv aşkarlandı. Bir daha yoxlayın";
                 ViewBag.ShowModal = "AddModal";
+                db = new ICSDBContext();
                 return View("Index", servicesAdmin);
             }
         }
@@ -125,6 +125,7 @@ namespace ICS.Controllers
                 ViewBag.Translated = ID;
                 ViewBag.Message = "Səhv aşkarlandı. Bir daha yoxlayın";
                 ViewBag.ShowModal = "TranslateModal";
+                db = new ICSDBContext();
                 return View("Index", servicesAdmin);
             }
         }
@@ -151,7 +152,7 @@ namespace ICS.Controllers
                 }
 
                 ViewBag.ShowModal = "EditModal";
-                ViewBag.Language_ID = new SelectList(db.Languages, "ID", "Language_Short");
+                
                 servicesAdmin.services_Translate = services_Translate;
                 return View("Index", servicesAdmin);
             }
@@ -159,8 +160,9 @@ namespace ICS.Controllers
             {
                 ViewBag.Message = "Səhv aşkarlandı. Bir daha yoxlayın";
                 ViewBag.ShowModal = "EditModal";
-                ViewBag.Language_ID = new SelectList(db.Languages, "ID", "Language_Short");
+                
                 servicesAdmin.services_Translate = services_Translate;
+                db = new ICSDBContext();
                 return View("Index", servicesAdmin);
             }
         }
@@ -179,11 +181,11 @@ namespace ICS.Controllers
             Services_Translate services_Translate = new Services_Translate();
             try
             {
-                if (id == null) return RedirectToAction("BadRequest", "ErrorPage");
+                if (id == null) return RedirectToAction("Index");
 
                 services_Translate = db.Services_Translate.Find(id);
 
-                if (services_Translate == null) return RedirectToAction("NotFound", "ErrorPage");
+                if (services_Translate == null) return RedirectToAction("Index");
 
                 customMethods.ImageUploadValidation(ModelState, file, "services_Translate.Service.image");
 
@@ -206,7 +208,7 @@ namespace ICS.Controllers
 
                 dbContextTransaction.Rollback();
                 ViewBag.ShowModal = "ImageModal";
-                ViewBag.Language_ID = new SelectList(db.Languages, "ID", "Language_Short");
+                
                 servicesAdmin.services_Translate = services_Translate;
                 return View("Index", servicesAdmin);
             }
@@ -215,8 +217,9 @@ namespace ICS.Controllers
                 dbContextTransaction.Rollback();
                 ViewBag.Message = "Səhv aşkarlandı. Bir daha yoxlayın";
                 ViewBag.ShowModal = "ImageModal";
-                ViewBag.Language_ID = new SelectList(db.Languages, "ID", "Language_Short");
+                
                 servicesAdmin.services_Translate = services_Translate;
+                db = new ICSDBContext();
                 return View("Index", servicesAdmin);
             }
         }
@@ -235,11 +238,11 @@ namespace ICS.Controllers
             Services_Translate services_Translate = new Services_Translate();
             try
             {
-                if (id == null) return RedirectToAction("BadRequest", "ErrorPage");
+                if (id == null) return RedirectToAction("Index");
 
                 services_Translate = db.Services_Translate.Find(id);
 
-                if (services_Translate == null) return RedirectToAction("NotFound", "ErrorPage");
+                if (services_Translate == null) return RedirectToAction("Index");
 
                 string image = services_Translate.Service.image;
 
@@ -256,8 +259,9 @@ namespace ICS.Controllers
                 dbContextTransaction.Rollback();
                 ViewBag.Message = "Səhv aşkarlandı. Bir daha yoxlayın";
                 ViewBag.ShowModal = "DeleteModal";
-                ViewBag.Language_ID = new SelectList(db.Languages, "ID", "Language_Short");
+                
                 servicesAdmin.services_Translate = services_Translate;
+                db = new ICSDBContext();
                 return View("Index", servicesAdmin);
             }
         }

@@ -40,7 +40,7 @@ namespace ICS.Controllers
         // GET: Aboutstest
         public ActionResult Index()
         {
-            ViewBag.Language_ID = new SelectList(db.Languages, "ID", "Language_Short");
+            
             return View(aboutAdmin);
         }
         
@@ -82,6 +82,7 @@ namespace ICS.Controllers
                 ViewBag.Translated = ID;
                 ViewBag.Message = "Səhv aşkarlandı. Bir daha yoxlayın";
                 ViewBag.ShowModal = "TranslateModal";
+                db = new ICSDBContext();
                 return View("Index", aboutAdmin);
             }
         }
@@ -108,7 +109,7 @@ namespace ICS.Controllers
                 }
 
                 ViewBag.ShowModal = "EditModal";
-                ViewBag.Language_ID = new SelectList(db.Languages, "ID", "Language_Short");
+                
                 aboutAdmin.about_Translate = about_Translate;
                 return View("Index", aboutAdmin);
             }
@@ -116,8 +117,9 @@ namespace ICS.Controllers
             {
                 ViewBag.Message = "Səhv aşkarlandı. Bir daha yoxlayın";
                 ViewBag.ShowModal = "EditModal";
-                ViewBag.Language_ID = new SelectList(db.Languages, "ID", "Language_Short");
+                
                 aboutAdmin.about_Translate = about_Translate;
+                db = new ICSDBContext();
                 return View("Index", aboutAdmin);
             }
         }
@@ -136,11 +138,11 @@ namespace ICS.Controllers
             About_Translate about_Translate = new About_Translate();
             try
             {
-                if (id == null) return RedirectToAction("BadRequest", "ErrorPage");
+                if (id == null) return RedirectToAction("Index");
 
                 about_Translate = db.About_Translate.Find(id);
 
-                if (about_Translate == null) return RedirectToAction("NotFound", "ErrorPage");
+                if (about_Translate == null) return RedirectToAction("Index");
 
                 customMethods.ImageUploadValidation(ModelState, file, "about_Translate.About.image");
 
@@ -163,7 +165,7 @@ namespace ICS.Controllers
 
                 dbContextTransaction.Rollback();
                 ViewBag.ShowModal = "ImageModal";
-                ViewBag.Language_ID = new SelectList(db.Languages, "ID", "Language_Short");
+                
                 aboutAdmin.about_Translate = about_Translate;
                 return View("Index", aboutAdmin);
             }
@@ -172,8 +174,9 @@ namespace ICS.Controllers
                 dbContextTransaction.Rollback();
                 ViewBag.Message = "Səhv aşkarlandı. Bir daha yoxlayın";
                 ViewBag.ShowModal = "ImageModal";
-                ViewBag.Language_ID = new SelectList(db.Languages, "ID", "Language_Short");
+                
                 aboutAdmin.about_Translate = about_Translate;
+                db = new ICSDBContext();
                 return View("Index", aboutAdmin);
             }
         }        

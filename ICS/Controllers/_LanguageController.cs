@@ -2,9 +2,7 @@
 using ICS.Models.AdminMerge;
 using ICS.Utilities;
 using System;
-using System.Collections.Generic;
 using System.Data.Entity;
-using System.Data.Entity.Validation;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -35,7 +33,7 @@ namespace ICS.Controllers
         // GET: Languagestest
         public ActionResult Index()
         {
-            ViewBag.Language_ID = new SelectList(db.Languages, "ID", "Language_Short");
+            
             return View(languageAdmin);
         }
 
@@ -77,6 +75,7 @@ namespace ICS.Controllers
                 languageAdmin.language = language;
                 ViewBag.Message = "Səhv aşkarlandı. Bir daha yoxlayın";
                 ViewBag.ShowModal = "AddModal";
+                db = new ICSDBContext();
                 return View("Index", languageAdmin);
             }
         }
@@ -110,6 +109,7 @@ namespace ICS.Controllers
                 ViewBag.Message = "Səhv aşkarlandı. Bir daha yoxlayın";
                 ViewBag.ShowModal = "EditModal";
                 languageAdmin.language = language;
+                db = new ICSDBContext();
                 return View("Index", languageAdmin);
             }
         }
@@ -128,11 +128,11 @@ namespace ICS.Controllers
             Language language = new Language();
             try
             {
-                if (id == null) return RedirectToAction("BadRequest", "ErrorPage");
+                if (id == null) return RedirectToAction("Index");
 
                 language = db.Languages.Find(id);
 
-                if (language == null) return RedirectToAction("NotFound", "ErrorPage");
+                if (language == null) return RedirectToAction("Index");
 
                 customMethods.ImageUploadValidation(ModelState, file, "language_Translate.Language.image");
 
@@ -165,6 +165,7 @@ namespace ICS.Controllers
                 ViewBag.Message = "Səhv aşkarlandı. Bir daha yoxlayın";
                 ViewBag.ShowModal = "ImageModal";
                 languageAdmin.language = language;
+                db = new ICSDBContext();
                 return View("Index", languageAdmin);
             }
         }
@@ -183,11 +184,11 @@ namespace ICS.Controllers
             Language language = new Language();
             try
             {
-                if (id == null) return RedirectToAction("BadRequest", "ErrorPage");
+                if (id == null) return RedirectToAction("Index");
 
                 language = db.Languages.Find(id);
 
-                if (language == null) return RedirectToAction("NotFound", "ErrorPage");
+                if (language == null) return RedirectToAction("Index");
 
                 string image = language.image;
 
@@ -205,6 +206,7 @@ namespace ICS.Controllers
                 ViewBag.Message = "Səhv aşkarlandı. Bir daha yoxlayın";
                 ViewBag.ShowModal = "DeleteModal";
                 languageAdmin.language = language;
+                db = new ICSDBContext();
                 return View("Index", languageAdmin);
             }
         }

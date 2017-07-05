@@ -1,10 +1,7 @@
 ﻿using ICS.Models;
 using ICS.Models.AdminMerge;
-using System;
-using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace ICS.Controllers
@@ -37,7 +34,7 @@ namespace ICS.Controllers
         // GET: Menustest
         public ActionResult Index()
         {
-            ViewBag.Language_ID = new SelectList(db.Languages, "ID", "Language_Short");
+            
             return View(menuAdmin);
         }
 
@@ -77,6 +74,7 @@ namespace ICS.Controllers
                 ViewBag.Translated = ID;
                 ViewBag.Message = "Səhv aşkarlandı. Bir daha yoxlayın";
                 ViewBag.ShowModal = "TranslateModal";
+                db = new ICSDBContext();
                 return View("Index", menuAdmin);
             }
         }
@@ -108,7 +106,7 @@ namespace ICS.Controllers
                 }
 
                 ViewBag.ShowModal = "EditModal";
-                ViewBag.Language_ID = new SelectList(db.Languages, "ID", "Language_Short");
+                
                 menuAdmin.menu_Translate = menu_Translate;
                 return View("Index", menuAdmin);
             }
@@ -116,8 +114,9 @@ namespace ICS.Controllers
             {
                 ViewBag.Message = "Səhv aşkarlandı. Bir daha yoxlayın";
                 ViewBag.ShowModal = "EditModal";
-                ViewBag.Language_ID = new SelectList(db.Languages, "ID", "Language_Short");
+                
                 menuAdmin.menu_Translate = menu_Translate;
+                db = new ICSDBContext();
                 return View("Index", menuAdmin);
             }
         }

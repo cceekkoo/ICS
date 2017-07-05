@@ -2,7 +2,6 @@
 using ICS.Models.AdminMerge;
 using ICS.Utilities;
 using System;
-using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
@@ -36,7 +35,7 @@ namespace ICS.Controllers
         // GET: Stepstest
         public ActionResult Index()
         {
-            ViewBag.Language_ID = new SelectList(db.Languages, "ID", "Language_Short");
+            
             return View(stepAdmin);
         }
 
@@ -76,6 +75,7 @@ namespace ICS.Controllers
                 ViewBag.Translated = ID;
                 ViewBag.Message = "Səhv aşkarlandı. Bir daha yoxlayın";
                 ViewBag.ShowModal = "TranslateModal";
+                db = new ICSDBContext();
                 return View("Index", stepAdmin);
             }
         }
@@ -109,7 +109,7 @@ namespace ICS.Controllers
                 }
 
                 ViewBag.ShowModal = "EditModal";
-                ViewBag.Language_ID = new SelectList(db.Languages, "ID", "Language_Short");
+                
                 stepAdmin.step_Translate = step_Translate;
                 return View("Index", stepAdmin);
             }
@@ -117,8 +117,9 @@ namespace ICS.Controllers
             {
                 ViewBag.Message = "Səhv aşkarlandı. Bir daha yoxlayın";
                 ViewBag.ShowModal = "EditModal";
-                ViewBag.Language_ID = new SelectList(db.Languages, "ID", "Language_Short");
+                
                 stepAdmin.step_Translate = step_Translate;
+                db = new ICSDBContext();
                 return View("Index", stepAdmin);
             }
         }
@@ -137,11 +138,11 @@ namespace ICS.Controllers
             Steps_Translate step_Translate = new Steps_Translate();
             try
             {
-                if (id == null) return RedirectToAction("BadRequest", "ErrorPage");
+                if (id == null) return RedirectToAction("Index");
 
                 step_Translate = db.Steps_Translate.Find(id);
 
-                if (step_Translate == null) return RedirectToAction("NotFound", "ErrorPage");
+                if (step_Translate == null) return RedirectToAction("Index");
 
                 customMethods.ImageUploadValidation(ModelState, file, "step_Translate.Step.image");
 
@@ -164,7 +165,7 @@ namespace ICS.Controllers
 
                 dbContextTransaction.Rollback();
                 ViewBag.ShowModal = "ImageModal";
-                ViewBag.Language_ID = new SelectList(db.Languages, "ID", "Language_Short");
+                
                 stepAdmin.step_Translate = step_Translate;
                 return View("Index", stepAdmin);
             }
@@ -173,8 +174,9 @@ namespace ICS.Controllers
                 dbContextTransaction.Rollback();
                 ViewBag.Message = "Səhv aşkarlandı. Bir daha yoxlayın";
                 ViewBag.ShowModal = "ImageModal";
-                ViewBag.Language_ID = new SelectList(db.Languages, "ID", "Language_Short");
+                
                 stepAdmin.step_Translate = step_Translate;
+                db = new ICSDBContext();
                 return View("Index", stepAdmin);
             }
         }

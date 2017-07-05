@@ -2,7 +2,6 @@
 using ICS.Models.AdminMerge;
 using ICS.Utilities;
 using System;
-using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
@@ -75,6 +74,7 @@ namespace ICS.Controllers
                 socialAdmin.social = social;
                 ViewBag.Message = "Səhv aşkarlandı. Bir daha yoxlayın";
                 ViewBag.ShowModal = "AddModal";
+                db = new ICSDBContext();
                 return View("Index", socialAdmin);
             }
         }
@@ -109,6 +109,7 @@ namespace ICS.Controllers
                 ViewBag.Message = "Səhv aşkarlandı. Bir daha yoxlayın";
                 ViewBag.ShowModal = "EditModal";
                 socialAdmin.social = social;
+                db = new ICSDBContext();
                 return View("Index", socialAdmin);
             }
         }
@@ -127,11 +128,11 @@ namespace ICS.Controllers
             Social social = new Social();
             try
             {
-                if (id == null) return RedirectToAction("BadRequest", "ErrorPage");
+                if (id == null) return RedirectToAction("Index");
 
                 social = db.Socials.Find(id);
 
-                if (social == null) return RedirectToAction("NotFound", "ErrorPage");
+                if (social == null) return RedirectToAction("Index");
 
                 customMethods.ImageUploadValidation(ModelState, file, "social.Social.image");
 
@@ -154,7 +155,7 @@ namespace ICS.Controllers
 
                 dbContextTransaction.Rollback();
                 ViewBag.ShowModal = "ImageModal";
-                ViewBag.Language_ID = new SelectList(db.Languages, "ID", "Language_Short");
+                
                 socialAdmin.social = social;
                 return View("Index", socialAdmin);
             }
@@ -164,6 +165,7 @@ namespace ICS.Controllers
                 ViewBag.Message = "Səhv aşkarlandı. Bir daha yoxlayın";
                 ViewBag.ShowModal = "ImageModal";
                 socialAdmin.social = social;
+                db = new ICSDBContext();
                 return View("Index", socialAdmin);
             }
         }
@@ -181,11 +183,11 @@ namespace ICS.Controllers
             Social social = new Social();
             try
             {
-                if (id == null) return RedirectToAction("BadRequest", "ErrorPage");
+                if (id == null) return RedirectToAction("Index");
 
                 social = db.Socials.Find(id);
 
-                if (social == null) return RedirectToAction("NotFound", "ErrorPage");
+                if (social == null) return RedirectToAction("Index");
 
                 db.Socials.Remove(social);
                 db.SaveChanges();
@@ -195,8 +197,9 @@ namespace ICS.Controllers
             {
                 ViewBag.Message = "Səhv aşkarlandı. Bir daha yoxlayın";
                 ViewBag.ShowModal = "DeleteModal";
-                ViewBag.Language_ID = new SelectList(db.Languages, "ID", "Language_Short");
+                
                 socialAdmin.social = social;
+                db = new ICSDBContext();
                 return View("Index", socialAdmin);
             }
         }

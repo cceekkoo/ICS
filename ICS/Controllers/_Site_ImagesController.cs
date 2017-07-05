@@ -2,7 +2,6 @@
 using ICS.Models.AdminMerge;
 using ICS.Utilities;
 using System;
-using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
@@ -67,6 +66,7 @@ namespace ICS.Controllers
                 ViewBag.Mesage = "Səhv aşkarlandı. Bir daha yoxlayın";
                 ViewBag.ShowModal = "EditModal";
                 site_ImagesAdmin.site_Image = site_Image;
+                db = new ICSDBContext();
                 return View("Index", site_ImagesAdmin);
             }
         }
@@ -85,11 +85,11 @@ namespace ICS.Controllers
             Site_Images site_Image = new Site_Images();
             try
             {
-                if (id == null) return RedirectToAction("BadRequest", "ErrorPage");
+                if (id == null) return RedirectToAction("Index");
 
                 site_Image = db.Site_Images.Find(id);
 
-                if (site_Image == null) return RedirectToAction("NotFound", "ErrorPage");
+                if (site_Image == null) return RedirectToAction("Index");
 
                 customMethods.ImageUploadValidation(ModelState, file, "site_Images.Site_Images.image");
 
@@ -112,7 +112,7 @@ namespace ICS.Controllers
 
                 dbContextTransaction.Rollback();
                 ViewBag.ShowModal = "ImageModal";
-                ViewBag.Language_ID = new SelectList(db.Languages, "ID", "Language_Short");
+                
                 site_ImagesAdmin.site_Image = site_Image;
                 return View("Index", site_ImagesAdmin);
             }
@@ -122,6 +122,7 @@ namespace ICS.Controllers
                 ViewBag.Mesage = "Səhv aşkarlandı. Bir daha yoxlayın";
                 ViewBag.ShowModal = "ImageModal";
                 site_ImagesAdmin.site_Image = site_Image;
+                db = new ICSDBContext();
                 return View("Index", site_ImagesAdmin);
             }
         }

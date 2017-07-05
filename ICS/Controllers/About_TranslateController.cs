@@ -40,7 +40,7 @@ namespace ICS.Controllers
         public ActionResult Create()
         {
             ViewBag.Value_ID = new SelectList(db.Abouts, "ID", "image");
-            ViewBag.Language_ID = new SelectList(db.Languages, "ID", "Language_Short");
+            
             return View();
         }
 

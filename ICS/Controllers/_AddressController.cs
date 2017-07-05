@@ -1,11 +1,7 @@
 ﻿using ICS.Models;
 using ICS.Models.AdminMerge;
-using ICS.Utilities;
-using System;
-using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace ICS.Controllers
@@ -34,7 +30,6 @@ namespace ICS.Controllers
         // GET: Addressstest
         public ActionResult Index()
         {
-            ViewBag.Language_ID = new SelectList(db.Languages, "ID", "Language_Short");
             return View(addressAdmin);
         }
 
@@ -68,6 +63,7 @@ namespace ICS.Controllers
                 addressAdmin.address_Translate = address_Translate;
                 ViewBag.Message = "Səhv aşkarlandı. Bir daha yoxlayın";
                 ViewBag.ShowModal = "AddModal";
+                db = new ICSDBContext();
                 return View("Index", addressAdmin);
             }
         }
@@ -110,6 +106,7 @@ namespace ICS.Controllers
                 ViewBag.Translated = ID;
                 ViewBag.Message = "Səhv aşkarlandı. Bir daha yoxlayın";
                 ViewBag.ShowModal = "TranslateModal";
+                db = new ICSDBContext();
                 return View("Index", addressAdmin);
             }
         }
@@ -140,7 +137,6 @@ namespace ICS.Controllers
                 }
 
                 ViewBag.ShowModal = "EditModal";
-                ViewBag.Language_ID = new SelectList(db.Languages, "ID", "Language_Short");
                 addressAdmin.address_Translate = address_Translate;
                 return View("Index", addressAdmin);
             }
@@ -148,8 +144,8 @@ namespace ICS.Controllers
             {
                 ViewBag.Message = "Səhv aşkarlandı. Bir daha yoxlayın";
                 ViewBag.ShowModal = "EditModal";
-                ViewBag.Language_ID = new SelectList(db.Languages, "ID", "Language_Short");
                 addressAdmin.address_Translate = address_Translate;
+                db = new ICSDBContext();
                 return View("Index", addressAdmin);
             }
         }
@@ -167,11 +163,11 @@ namespace ICS.Controllers
             Address_Translate address_Translate = new Address_Translate();
             try
             {
-                if (id == null) return RedirectToAction("BadRequest", "ErrorPage");
+                if (id == null) return RedirectToAction("Index");
 
                 address_Translate = db.Address_Translate.Find(id);
 
-                if (address_Translate == null) return RedirectToAction("NotFound", "ErrorPage");
+                if (address_Translate == null) return RedirectToAction("Index");
 
                 db.Addresses.Remove(address_Translate.Address);
                 db.SaveChanges();
@@ -181,8 +177,8 @@ namespace ICS.Controllers
             {
                 ViewBag.Message = "Səhv aşkarlandı. Bir daha yoxlayın";
                 ViewBag.ShowModal = "DeleteModal";
-                ViewBag.Language_ID = new SelectList(db.Languages, "ID", "Language_Short");
                 addressAdmin.address_Translate = address_Translate;
+                db = new ICSDBContext();
                 return View("Index", addressAdmin);
             }
         }

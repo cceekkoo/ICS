@@ -1,10 +1,6 @@
 ﻿using ICS.Models;
 using ICS.Models.AdminMerge;
-using System;
-using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace ICS.Controllers
@@ -33,7 +29,7 @@ namespace ICS.Controllers
         // GET: Site_Contentstest
         public ActionResult Index()
         {
-            ViewBag.Language_ID = new SelectList(db.Languages, "ID", "Language_Short");
+            
             return View(site_ContentAdmin);
         }
 
@@ -72,6 +68,7 @@ namespace ICS.Controllers
                 ViewBag.Translated = ID;
                 ViewBag.Message = "Səhv aşkarlandı. Bir daha yoxlayın";
                 ViewBag.ShowModal = "TranslateModal";
+                db = new ICSDBContext();
                 return View("Index", site_ContentAdmin);
             }
         }
@@ -96,7 +93,7 @@ namespace ICS.Controllers
                 }
 
                 ViewBag.ShowModal = "EditModal";
-                ViewBag.Language_ID = new SelectList(db.Languages, "ID", "Language_Short");
+                
                 site_ContentAdmin.site_Content = site_Content;
                 return View("Index", site_ContentAdmin);
             }
@@ -104,8 +101,9 @@ namespace ICS.Controllers
             {
                 ViewBag.Message = "Səhv aşkarlandı. Bir daha yoxlayın";
                 ViewBag.ShowModal = "EditModal";
-                ViewBag.Language_ID = new SelectList(db.Languages, "ID", "Language_Short");
+                
                 site_ContentAdmin.site_Content = site_Content;
+                db = new ICSDBContext();
                 return View("Index", site_ContentAdmin);
             }
         }
