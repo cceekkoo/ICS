@@ -415,7 +415,6 @@
     <Content Include="Views\ErrorPage\NotFound.cshtml" />
     <Content Include="Views\ErrorPage\ServerError.cshtml" />
     <Content Include="Views\Order\Index.cshtml" />
-    <None Include="Properties\PublishProfiles\ICS.pubxml" />
     <Content Include="Views\Contract\Index.cshtml" />
     <Content Include="Views\Shared\_Admin.cshtml" />
     <Content Include="Views\Shared\_Login.cshtml" />
