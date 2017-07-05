@@ -68,7 +68,6 @@ namespace ICS.Controllers
 
                 ViewBag.ShowModal = "EditModal";
                 accountAdmin.edituser = edituser;
-                db = new ICSDBContext();
                 return View("Index", accountAdmin);
             }
             catch
