@@ -162,7 +162,7 @@ namespace ICS.Controllers
         [AllowAnonymous]
         public ActionResult Login()
         {
-            if (User.Identity.IsAuthenticated) return RedirectToAction("", "Abouts");
+            if (User.Identity.IsAuthenticated) return RedirectToAction("Index");
             return View();
         }
 
