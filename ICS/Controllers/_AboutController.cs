@@ -14,6 +14,7 @@ using System.Web.Mvc;
 
 namespace ICS.Controllers
 {
+    [Authorize]
     public class _AboutController : Controller
     {
         private ICSDBContext db = new ICSDBContext();

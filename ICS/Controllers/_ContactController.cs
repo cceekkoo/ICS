@@ -9,6 +9,7 @@ using System.Web.Mvc;
 
 namespace ICS.Controllers
 {
+    [Authorize]
     public class _ContactController : Controller
     {
         private ICSDBContext db = new ICSDBContext();

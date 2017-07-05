@@ -7,6 +7,7 @@ using System.Web.Mvc;
 
 namespace ICS.Controllers
 {
+    [Authorize]
     public class _OrderController : Controller
     {
         private ICSDBContext db = new ICSDBContext();

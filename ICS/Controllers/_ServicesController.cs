@@ -10,6 +10,7 @@ using System.Web.Mvc;
 
 namespace ICS.Controllers
 {
+    [Authorize]
     public class _ServicesController : Controller
     {
         private ICSDBContext db = new ICSDBContext();
