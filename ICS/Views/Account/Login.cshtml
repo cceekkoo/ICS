@@ -1,29 +1,42 @@
-﻿@model QSZ.Models.Login
-
+﻿@model ICS.Models.Login
 @{
-    ViewBag.Title = "Login";
     Layout = "~/Views/Shared/_Login.cshtml";
 }
+
+<div class="login-box">
+    <div class="login-logo">
+        <a href="@Url.Action("Login", "Account")"><b>Daxil ol</b></a>
+    </div>
+    <!-- /.login-logo -->
+    <div class="login-box-body">
+        <p class="login-box-msg">Giriş üçün daxil ol</p>
+        @using (Html.BeginForm("Login", "Account", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group has-feedback">
+                @Html.EditorFor(m => m.Username, new { htmlAttributes = new { @class = "form-control", @placeholder = "İstifadəçi adı" } })
+                <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                @Html.ValidationMessageFor(m => m.Username, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group has-feedback">
+                @Html.EditorFor(m => m.Password, new { htmlAttributes = new { @class = "form-control", @placeholder = "Şifrə", @Value = "", @Type = "password" } })
+                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group has-feedback">
+                <span class="text-danger">@ViewBag.Message</span>
+            </div>
+            <div class="row">
+                <!-- /.col -->
+                <div class="col-xs-4 col-xs-offset-8">
+                    <button type="submit" class="btn btn-primary btn-block btn-flat">Daxil Ol</button>
+                </div>
+                <!-- /.col -->
+            </div>
+        }
+    </div>
+    <!-- /.login-box-body -->
+</div>
 <script src="~/Content/js/jquery.validate.min.js"></script>
 <script src="~/Content/js/jquery.validate.unobtrusive.min.js"></script>
-
-<div class="login-page">
-    <div class="form">
-        @using (Html.BeginForm("Login", "Account", FormMethod.Post, new { @class = "login-form" }))
-        {
-            @Html.AntiForgeryToken();
-            @Html.ValidationSummary(true);
-            <div class="row">
-                @Html.EditorFor(x => x.Username, new { htmlAttributes = new { @placeholder = "Username" } })
-                @Html.ValidationMessageFor(x => x.Username)
-            </div>
-            <div class="row">
-                @Html.EditorFor(x => x.Password, new { htmlAttributes = new { @placeholder = "Password", @type = "password", @Value = "" } })
-                @Html.ValidationMessageFor(x => x.Password)
-            </div>
-            <input type="submit" id="login" value="Login" />
-
-        }
-        <p class="text-danger">@ViewBag.Message</p>
-    </div>
-</div>

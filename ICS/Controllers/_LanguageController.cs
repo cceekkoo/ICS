@@ -155,7 +155,6 @@ namespace ICS.Controllers
 
                 dbContextTransaction.Rollback();
                 ViewBag.ShowModal = "ImageModal";
-                ViewBag.Language_ID = new SelectList(db.Languages, "ID", "Language_Short");
                 languageAdmin.language = language;
                 return View("Index", languageAdmin);
             }

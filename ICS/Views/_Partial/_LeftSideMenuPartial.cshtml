@@ -1,14 +1,19 @@
-﻿ <!-- Left side column. contains the logo and sidebar -->
+﻿@using ICS.Models
+@{
+    User user = ViewBag.User;
+}
+
+<!-- Left side column. contains the logo and sidebar -->
 <aside class="main-sidebar">
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel">
             <div class="pull-left image left">
-                <img src="~/Content/images/user2-160x160.jpg" class="img-circle" alt="User Image">
+                <img src="~/Content/images/@user.image" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info left">
-                <p>wqasdkjwqsla</p>
+                <p>@user.Username</p>
                 <!-- Status -->
                 <a><i class="fa fa-circle text-success"></i> Online</a>
             </div>

@@ -1,0 +1,200 @@
+﻿@model ICS.Models.AdminMerge.AccountAdminMerge
+@{
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+
+<div id="AddModal" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            @using (Html.BeginForm("ChangePassword", null))
+            {
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Şifrə</h4>
+                </div>
+
+                <div class="modal-body scrollbar">
+                    <div class="content-row">
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group row">
+                            <div class="col-md-5">
+                                <label>
+                                    Yeni şifrə
+                                    @Html.ValidationMessageFor(model => model.changePassword.NewPassword, "", new { @class = "text-danger" })
+                                </label>
+                                @Html.EditorFor(model => model.changePassword.NewPassword, new { htmlAttributes = new { @class = "form-control", @Type = "password" } })
+                            </div>
+
+                            <div class="col-md-offset-2 col-md-5">
+                                <label>
+                                    Yeni şifrə (təkrar)
+                                    @Html.ValidationMessageFor(model => model.changePassword.ReNewPassword, "", new { @class = "text-danger" })
+                                </label>
+                                @Html.EditorFor(model => model.changePassword.ReNewPassword, new { htmlAttributes = new { @class = "form-control", @Type = "password" } })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <span class="text-danger">@ViewBag.Message</span> <br /><button type="button" class="btn btn-default" data-dismiss="modal">Ləğv et</button>
+                    <button type="submit" class="btn btn-primary">Təsdiqlə</button>
+                </div>
+            }
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+
+<div id="ImageModal" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            @using (Html.BeginForm("ImageChange", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Şəkil redaktəsi</h4>
+                </div>
+
+                <div class="modal-body scrollbar">
+                    <div class="content-row">
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group row">
+                            <div class="col-md-5">
+                                <label>
+                                    Şəkil
+                                    @Html.ValidationMessageFor(model => model.user.image, "", new { @class = "text-danger" })
+                                </label>
+                                <input name="file" type="file" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <span class="text-danger">@ViewBag.Message</span> <br /><button type="button" class="btn btn-default" data-dismiss="modal">Ləğv et</button>
+                    <button type="submit" class="btn btn-primary">Təsdiqlə</button>
+                </div>
+            }
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+
+<div id="EditModal" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            @using (Html.BeginForm("Edit", null))
+            {
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">İstifadəçi adı</h4>
+                </div>
+
+                <div class="modal-body scrollbar">
+                    <div class="content-row">
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group row">
+                            <div class="hidden">
+                                <input />
+                            </div>
+                            <div class="col-md-5">
+                                <label>
+                                    İstifadəçi adı
+                                    @Html.ValidationMessageFor(model => model.edituser.Username, "", new { @class = "text-danger" })
+                                </label>
+                                @Html.EditorFor(model => model.edituser.Username, new { htmlAttributes = new { @class = "form-control" } })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <span class="text-danger">@ViewBag.Message</span> <br /><button type="button" class="btn btn-default" data-dismiss="modal">Ləğv et</button>
+                    <button type="submit" class="btn btn-primary">Təsdiqlə</button>
+                </div>
+            }
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+
+<!-- /.modal -->
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            Profil
+        </h1>
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <div class="row content-row">
+            <div class="col-xs-12">
+                <div class="box">
+                    <div class="box-header">
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        <table id="table" class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th class="hidden"></th>
+                                    <th>İstifadəçi adı</th>
+                                    <th>Şifrə</th>
+                                    <th>Şəkil</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th class="hidden"></th>
+                                    <td>@Model.user.Username</td>
+
+                                    <td>********************</td>
+
+                                    <td class="text-center">
+                                        <img width="100" height="100" src="~/Content/images/@Model.user.image" />
+                                    </td>
+                                    <td>
+                                        <button type="button" class="grid-buttons btn-edit" title="Redaktə"
+                                                data-toggle="modal" data-target="#EditModal"></button>
+                                        <button type="button" class="grid-buttons btn-upload" title="Şəkil yüklə"
+                                                data-toggle="modal" data-target="#ImageModal"></button>
+                                        <button type="button" class="grid-buttons btn-password" title="Redaktə"
+                                                data-toggle="modal" data-target="#AddModal"></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th class="hidden"></th>
+                                    <th>İstifadəçi adı</th>
+                                    <th>Şifrə</th>
+                                    <th>Şəkil</th>
+                                    <th></th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+                <!-- /.box -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </section>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+
+<script>
+
+    $(window).on('load', function () {
+        $("#@ViewBag.ShowModal").modal('show');
+    });
+</script>

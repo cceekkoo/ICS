@@ -141,6 +141,7 @@
     <Content Include="Content\css\skin-blue.min.css" />
     <Content Include="Content\css\style.css" />
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\images\password.png" />
     <Content Include="Content\images\400.png" />
     <Content Include="Content\images\403.png" />
     <Content Include="Content\images\404.png" />
@@ -228,6 +229,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\About_TranslateController.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\_MenuController.cs" />
     <Compile Include="Controllers\_AboutController.cs" />
     <Compile Include="Controllers\ChangeLanguageController.cs" />
@@ -271,6 +273,7 @@
       <DependentUpon>ICSDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\AdminMerge\AboutAdminMerge.cs" />
+    <Compile Include="Models\AdminMerge\AccountAdminMerge.cs" />
     <Compile Include="Models\AdminMerge\AddressAdminMerge.cs" />
     <Compile Include="Models\AdminMerge\ContactAdminMerge.cs" />
     <Compile Include="Models\AdminMerge\LanguageAdminMerge.cs" />
@@ -283,6 +286,7 @@
     <Compile Include="Models\AdminMerge\SocialAdminMerge.cs" />
     <Compile Include="Models\AdminMerge\StepAdminMerge.cs" />
     <Compile Include="Models\CaptchaResponse.cs" />
+    <Compile Include="Models\ChangePassword.cs" />
     <Compile Include="Models\Contact.cs">
       <DependentUpon>ICSDataModel.tt</DependentUpon>
     </Compile>
@@ -310,6 +314,7 @@
     <Compile Include="Models\Language.cs">
       <DependentUpon>ICSDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Login.cs" />
     <Compile Include="Models\Menu.cs">
       <DependentUpon>ICSDataModel.tt</DependentUpon>
     </Compile>
@@ -362,6 +367,9 @@
       <DependentUpon>ICSDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Steps_Translate.cs">
+      <DependentUpon>ICSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\User.cs">
       <DependentUpon>ICSDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -429,6 +437,7 @@
     <Content Include="Views\_Partial\_HeaderPartial.cshtml" />
     <Content Include="Views\_Partial\_LeftSideMenuPartial.cshtml" />
     <Content Include="Views\_Partial\_FooterPartial.cshtml" />
+    <Content Include="Views\Account\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

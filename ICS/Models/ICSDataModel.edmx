@@ -202,6 +202,15 @@
           <Property Name="Value_ID" Type="int" Nullable="false" />
           <Property Name="Language_ID" Type="int" Nullable="false" />
         </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Username" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="image" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
         <Association Name="FK_About_Translate_About">
           <End Role="About" Type="Self.About" Multiplicity="1" />
           <End Role="About_Translate" Type="Self.About_Translate" Multiplicity="*" />
@@ -415,6 +424,7 @@
           <EntitySet Name="Socials" EntityType="Self.Socials" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Steps" EntityType="Self.Steps" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Steps_Translate" EntityType="Self.Steps_Translate" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_About_Translate_About" Association="Self.FK_About_Translate_About">
             <End Role="About" EntitySet="About" />
             <End Role="About_Translate" EntitySet="About_Translate" />
@@ -503,6 +513,7 @@
           <EntitySet Name="Socials" EntityType="Models.Social" />
           <EntitySet Name="Steps" EntityType="Models.Step" />
           <EntitySet Name="Steps_Translate" EntityType="Models.Steps_Translate" />
+          <EntitySet Name="Users" EntityType="Models.User" />
           <AssociationSet Name="FK_About_Translate_About" Association="Models.FK_About_Translate_About">
             <End Role="About" EntitySet="Abouts" />
             <End Role="About_Translate" EntitySet="About_Translate" />
@@ -790,6 +801,15 @@
           <Property Name="Language_ID" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Language" Relationship="Models.FK_Steps_Translate_Languages" FromRole="Steps_Translate" ToRole="Language" />
           <NavigationProperty Name="Step" Relationship="Models.FK_Steps_Translate_Steps" FromRole="Steps_Translate" ToRole="Step" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="image" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <Association Name="FK_About_Translate_About">
           <End Type="Models.About" Role="About" Multiplicity="1" />
@@ -1202,6 +1222,16 @@
                 <ScalarProperty Name="Language_ID" ColumnName="Language_ID" />
                 <ScalarProperty Name="Value_ID" ColumnName="Value_ID" />
                 <ScalarProperty Name="Text" ColumnName="Text" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="Models.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="image" ColumnName="image" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>

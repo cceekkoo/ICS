@@ -60,7 +60,7 @@ $(document).on("click", ".btn-edit", function () {
             }
         });
     }
-    $('.form-group > div> label > span').html(null);
+    $('.text-danger').html(null);
 })
 
 $(document).on("click", ".btn-add", function () {

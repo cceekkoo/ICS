@@ -47,5 +47,6 @@ namespace ICS.Models
         public virtual DbSet<Social> Socials { get; set; }
         public virtual DbSet<Step> Steps { get; set; }
         public virtual DbSet<Steps_Translate> Steps_Translate { get; set; }
+        public virtual DbSet<User> Users { get; set; }
     }
 }
