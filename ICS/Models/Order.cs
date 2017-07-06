@@ -32,6 +32,7 @@ namespace ICS.Models
         public string Contact_Name { get; set; }
         [Required(ErrorMessage = "***")]
         public string Phone { get; set; }
+        [DataType(DataType.MultilineText)]
         public string Additional_Order { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
