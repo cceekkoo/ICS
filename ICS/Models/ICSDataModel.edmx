@@ -288,7 +288,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Order_Services_Orders">
-          <End Role="Orders" Type="Self.Orders" Multiplicity="1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Order_Services" Type="Self.Order_Services" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Orders">
@@ -936,7 +938,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Order_Services_Orders">
-          <End Type="Models.Order" Role="Order" Multiplicity="1" />
+          <End Type="Models.Order" Role="Order" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Type="Models.Order_Services" Role="Order_Services" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Order">
