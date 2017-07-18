@@ -91,7 +91,7 @@ namespace ICS.Controllers
 
                 if (site_Image == null) return RedirectToAction("Index");
 
-                customMethods.ImageUploadValidation(ModelState, file, "site_Images.Site_Images.image");
+                customMethods.ImageUploadValidation(ModelState, file, "site_Image.image");
 
                 if (ModelState.IsValid)
                 {

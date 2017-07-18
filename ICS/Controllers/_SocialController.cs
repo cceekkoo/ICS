@@ -134,7 +134,7 @@ namespace ICS.Controllers
 
                 if (social == null) return RedirectToAction("Index");
 
-                customMethods.ImageUploadValidation(ModelState, file, "social.Social.image");
+                customMethods.ImageUploadValidation(ModelState, file, "social.image");
 
                 if (ModelState.IsValid)
                 {

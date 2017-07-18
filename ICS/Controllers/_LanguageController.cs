@@ -49,7 +49,7 @@ namespace ICS.Controllers
             var dbContextTransaction = db.Database.BeginTransaction();
             try
             {
-                customMethods.ImageUploadValidation(ModelState, file, "language_Translate.Language.image");
+                customMethods.ImageUploadValidation(ModelState, file, "language.image");
 
                 if (ModelState.IsValid)
                 {
@@ -134,7 +134,7 @@ namespace ICS.Controllers
 
                 if (language == null) return RedirectToAction("Index");
 
-                customMethods.ImageUploadValidation(ModelState, file, "language_Translate.Language.image");
+                customMethods.ImageUploadValidation(ModelState, file, "language.image");
 
                 if (ModelState.IsValid)
                 {
