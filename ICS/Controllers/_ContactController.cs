@@ -49,6 +49,7 @@ namespace ICS.Controllers
                     return RedirectToAction("Index");
                 }
                 ViewBag.ShowModal = "AddModal";
+                contactAdmin.contact = contact;
                 return View("Index", contactAdmin);
             }
             catch
