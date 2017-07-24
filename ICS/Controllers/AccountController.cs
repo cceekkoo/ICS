@@ -15,11 +15,11 @@ namespace ICS.Controllers
         private ICSDBContext db = new ICSDBContext();
         private CustomMethods customMethods = new CustomMethods();
         private Encryption hash = new Encryption();
+        private AccountAdminMerge account = new AccountAdminMerge();
         private AccountAdminMerge accountAdmin
         {
             get
             {
-                AccountAdminMerge account = new AccountAdminMerge();
                 account.user = db.Users.Find(Convert.ToInt32(User.Identity.Name));
                 return account;
             }

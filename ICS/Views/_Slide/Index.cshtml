@@ -261,8 +261,9 @@
                         </tr>
                         <tr>
                             <td class="border" width="20%">Şəkil</td>
-                            <td>@if (Model.slide_Translate != null) {
-                                @Model.slide_Translate.Slide.image
+                            <td>@if (Model.slide_Translate != null)
+                            {
+                                <img width="50" height="30" src="~/Content/images/@Model.slide_Translate.Slide.image" />
                             }</td>
                         </tr>
                     </table>

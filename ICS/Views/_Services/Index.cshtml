@@ -261,8 +261,9 @@
                         </tr>
                         <tr>
                             <td class="border" width="20%">Şəkil</td>
-                            <td>@if (Model.services_Translate != null) {
-                                @Model.services_Translate.Service.image
+                            <td>@if (Model.services_Translate != null)
+                            {
+                                <img width="50" height="30" src="~/Content/images/@Model.services_Translate.Service.image" />
                             }</td>
                         </tr>
                     </table>
