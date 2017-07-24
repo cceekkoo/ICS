@@ -28,7 +28,7 @@
                     <div class="form-group row">
                         <div class="col-md-5">
                             <label>
-                                Mətn (Azərbaycan)
+                                Mətn
                                 @Html.ValidationMessageFor(model => model.contact.Text, "", new { @class = "text-danger" })
                             </label>
                             @Html.EditorFor(model => model.contact.Text, new { htmlAttributes = new { @class = "form-control" } })
@@ -67,14 +67,14 @@
                     </div>
                     <div class="col-md-5">
                         <label>
-                            Metn az
+                            Mətn
                             @Html.ValidationMessageFor(model => model.contact.Text, "", new { @class = "text-danger" })
                         </label>
                         @Html.EditorFor(model => model.contact.Text, new { htmlAttributes = new { @class = "form-control" } })
                     </div>
                     <div class="col-md-5">
                         <label>
-                            Başlıq (Azərbaycanca)
+                            İcon
                             @Html.ValidationMessageFor(model => model.contact.icon, "", new { @class = "text-danger" })
                         </label>
                         @Html.EditorFor(model => model.contact.icon, new { htmlAttributes = new { @class = "form-control" } })
@@ -104,7 +104,11 @@
                 <div class="row content-row">
                     <table class="table table-bordered table-striped table-modal">
                         <tr>
-                            <td class="border" width="20%">Image1</td>
+                            <td class="border" width="20%">Metn</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="border" width="20%">İcon</td>
                             <td></td>
                         </tr>
                     </table>
@@ -136,7 +140,7 @@
                             }</td>
                         </tr>
                         <tr>
-                            <td class="border" width="20%">Icon</td>
+                            <td class="border" width="20%">İcon</td>
                             <td>@if (Model.contact != null) {
                                 @Model.contact.icon
                             }</td>
@@ -181,7 +185,7 @@
                                 <tr>
                                     <th class="hidden">ID</th>
                                     <th>Metn</th>
-                                    <th>Icon</th>
+                                    <th>İcon</th>
                                     <th></th>
                                 </tr>
                             </thead>
@@ -212,7 +216,7 @@
                                 <tr>
                                     <th class="hidden">ID</th>
                                     <th>Metn</th>
-                                    <th>Icon</th>
+                                    <th>İcon</th>
                                     <th></th>
                                 </tr>
                             </tfoot>
