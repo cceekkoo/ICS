@@ -119,7 +119,9 @@
                     <table class="table table-bordered table-striped table-modal">
                         <tr>
                             <td class="border" width="20%">Email</td>
-                            <td></td>
+                            <td>@if (Model.sendEmailTo != null) {
+                                @Model.sendEmailTo.Email
+                            }</td>
                         </tr>
                     </table>
                 </div>

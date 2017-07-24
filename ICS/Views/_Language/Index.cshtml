@@ -208,19 +208,27 @@
                     <table class="table table-bordered table-striped table-modal">
                         <tr>
                             <td class="border" width="20%">Başlıq (qısa)</td>
-                            <td></td>
+                            <td>@if (Model.language != null) {
+                                @Model.language.Language_Short
+                            }</td>
                         </tr>
                         <tr>
                             <td class="border" width="20%">Başlıq (tam)</td>
-                            <td></td>
+                            <td>@if (Model.language != null) {
+                                @Model.language.Language_Full
+                            }</td>
                         </tr>
                         <tr>
                             <td class="border" width="20%">Başlıq (captcha)</td>
-                            <td></td>
+                            <td>@if (Model.language != null) {
+                                @Model.language.ForCaptcha
+                            }</td>
                         </tr>
                         <tr>
                             <td class="border" width="20%">Şəkil</td>
-                            <td></td>
+                            <td>@if (Model.language != null) {
+                                @Model.language.image
+                            }</td>
                         </tr>
                     </table>
                 </div>

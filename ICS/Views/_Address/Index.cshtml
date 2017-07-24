@@ -193,11 +193,15 @@
                     <table class="table table-bordered table-striped table-modal">
                         <tr>
                             <td class="border" width="20%">İcon</td>
-                            <td></td>
+                            <td>@if (Model.address_Translate != null) {
+                                @Model.address_Translate.Address.icon
+                            }</td>
                         </tr>
                         <tr>
                             <td class="border" width="20%">Mətn</td>
-                            <td></td>
+                            <td>@if (Model.address_Translate != null){
+                                @Model.address_Translate.Text
+                            }</td>
                         </tr>
                     </table>
                 </div>

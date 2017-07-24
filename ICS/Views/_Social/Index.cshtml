@@ -167,11 +167,15 @@
                     <table class="table table-bordered table-striped table-modal">
                         <tr>
                             <td class="border" width="20%">Url</td>
-                            <td></td>
+                            <td>@if (Model.social != null) {
+                                @Model.social.Url
+                            }</td>
                         </tr>
                         <tr>
                             <td class="border" width="20%">Şəkil</td>
-                            <td></td>
+                            <td>@if (Model.social != null) {
+                                @Model.social.image
+                            }</td>
                         </tr>
                     </table>
                 </div>

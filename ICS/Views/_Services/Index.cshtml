@@ -249,15 +249,21 @@
                     <table class="table table-bordered table-striped table-modal">
                         <tr>
                             <td class="border" width="20%">Başlıq</td>
-                            <td></td>
+                            <td>@if (Model.services_Translate != null) {
+                                @Model.services_Translate.Title
+                            }</td>
                         </tr>
                         <tr>
                             <td class="border" width="20%">Mətn</td>
-                            <td></td>
+                            <td>@if (Model.services_Translate != null) {
+                                @Model.services_Translate.Text
+                            }</td>
                         </tr>
                         <tr>
                             <td class="border" width="20%">Şəkil</td>
-                            <td></td>
+                            <td>@if (Model.services_Translate != null) {
+                                @Model.services_Translate.Service.image
+                            }</td>
                         </tr>
                     </table>
                 </div>

@@ -9,37 +9,37 @@
         <div class="modal-content">
             @using (Html.BeginForm("Create", null))
             {
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">Yeni məlumat</h4>
-                </div>
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Yeni məlumat</h4>
+            </div>
 
-                <div class="modal-body scrollbar">
-                    <div class="content-row">
-                        @Html.AntiForgeryToken()
-                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="modal-body scrollbar">
+                <div class="content-row">
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="col-md-5">
+                        <label>
+                            İcon
+                            @Html.ValidationMessageFor(model => model.contact.icon, "", new { @class = "text-danger" })
+                        </label>
+                        @Html.EditorFor(model => model.contact.icon, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                    <div class="form-group row">
                         <div class="col-md-5">
                             <label>
-                                İcon
-                                @Html.ValidationMessageFor(model => model.contact.icon, "", new { @class = "text-danger" })
+                                Mətn (Azərbaycan)
+                                @Html.ValidationMessageFor(model => model.contact.Text, "", new { @class = "text-danger" })
                             </label>
-                            @Html.EditorFor(model => model.contact.icon, new { htmlAttributes = new { @class = "form-control" } })
-                        </div>
-                        <div class="form-group row">
-                            <div class="col-md-5">
-                                <label>
-                                    Mətn (Azərbaycan)
-                                    @Html.ValidationMessageFor(model => model.contact.Text, "", new { @class = "text-danger" })
-                                </label>
-                                @Html.EditorFor(model => model.contact.Text, new { htmlAttributes = new { @class = "form-control" } })
-                            </div>
+                            @Html.EditorFor(model => model.contact.Text, new { htmlAttributes = new { @class = "form-control" } })
                         </div>
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <span class="text-danger">@ViewBag.Message</span> <br /><button type="button" class="btn btn-default" data-dismiss="modal">Ləğv et</button>
-                    <button type="submit" class="btn btn-primary">Təsdiqlə</button>
-                </div>
+            </div>
+            <div class="modal-footer">
+                <span class="text-danger">@ViewBag.Message</span> <br /><button type="button" class="btn btn-default" data-dismiss="modal">Ləğv et</button>
+                <button type="submit" class="btn btn-primary">Təsdiqlə</button>
+            </div>
             }
         </div>
         <!-- /.modal-content -->
@@ -52,41 +52,41 @@
         <div class="modal-content">
             @using (Html.BeginForm("Edit", null))
             {
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">Redaktə</h4>
-                </div>
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Redaktə</h4>
+        </div>
 
-                <div class="modal-body scrollbar">
-                    <div class="content-row">
-                        @Html.AntiForgeryToken()
-                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                        <div class="form-group row">
-                            <div class="hidden">
-                                @Html.HiddenFor(model => model.contact.ID)
-                            </div>
-                            <div class="col-md-5">
-                                <label>
-                                    Metn az
-                                    @Html.ValidationMessageFor(model => model.contact.Text, "", new { @class = "text-danger" })
-                                </label>
-                                @Html.EditorFor(model => model.contact.Text, new { htmlAttributes = new { @class = "form-control" } })
-                            </div>
-                            <div class="col-md-5">
-                                <label>
-                                    Başlıq (Azərbaycanca)
-                                    @Html.ValidationMessageFor(model => model.contact.icon, "", new { @class = "text-danger" })
-                                </label>
-                                @Html.EditorFor(model => model.contact.icon, new { htmlAttributes = new { @class = "form-control" } })
-                            </div>
-                        </div>
+        <div class="modal-body scrollbar">
+            <div class="content-row">
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group row">
+                    <div class="hidden">
+                        @Html.HiddenFor(model => model.contact.ID)
+                    </div>
+                    <div class="col-md-5">
+                        <label>
+                            Metn az
+                            @Html.ValidationMessageFor(model => model.contact.Text, "", new { @class = "text-danger" })
+                        </label>
+                        @Html.EditorFor(model => model.contact.Text, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                    <div class="col-md-5">
+                        <label>
+                            Başlıq (Azərbaycanca)
+                            @Html.ValidationMessageFor(model => model.contact.icon, "", new { @class = "text-danger" })
+                        </label>
+                        @Html.EditorFor(model => model.contact.icon, new { htmlAttributes = new { @class = "form-control" } })
                     </div>
                 </div>
+            </div>
+        </div>
 
-                <div class="modal-footer">
-                    <span class="text-danger">@ViewBag.Message</span> <br /><button type="button" class="btn btn-default" data-dismiss="modal">Ləğv et</button>
-                    <button type="submit" class="btn btn-primary">Təsdiqlə</button>
-                </div>
+        <div class="modal-footer">
+            <span class="text-danger">@ViewBag.Message</span> <br /><button type="button" class="btn btn-default" data-dismiss="modal">Ləğv et</button>
+            <button type="submit" class="btn btn-primary">Təsdiqlə</button>
+        </div>
             }
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
@@ -131,7 +131,15 @@
                     <table class="table table-bordered table-striped table-modal">
                         <tr>
                             <td class="border" width="20%">Image1</td>
-                            <td></td>
+                            <td>@if (Model.contact != null) {
+                                @Model.contact.icon
+                            }</td>
+                        </tr>
+                        <tr>
+                            <td class="border" width="20%">Image1</td>
+                            <td>@if (Model.contact != null) {
+                                @Model.contact.Text
+                            }</td>
                         </tr>
                     </table>
                 </div>
