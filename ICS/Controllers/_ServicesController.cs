@@ -15,12 +15,12 @@ namespace ICS.Controllers
         private ICSDBContext db = new ICSDBContext();
         private CustomMethods customMethods = new CustomMethods();
         private Encryption hash = new Encryption();
+        private ServicesAdminMerge service = new ServicesAdminMerge();
 
         private ServicesAdminMerge servicesAdmin
         {
             get
             {
-                ServicesAdminMerge service = new ServicesAdminMerge();
                 service.services = db.Services_Translate.OrderBy(x => x.Value_ID).ThenBy(x => x.Language_ID).ToList();
                 service.defaultLanguageID = db.Languages.FirstOrDefault().ID;
                 service.languages = db.Languages.Where(x => x.ID != db.Languages.FirstOrDefault().ID);

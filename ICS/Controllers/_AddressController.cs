@@ -10,12 +10,12 @@ namespace ICS.Controllers
     public class _AddressController : Controller
     {
         private ICSDBContext db = new ICSDBContext();
+        private AddressAdminMerge address = new AddressAdminMerge();
 
         private AddressAdminMerge addressAdmin
         {
             get
             {
-                AddressAdminMerge address = new AddressAdminMerge();
                 address.addresses = db.Address_Translate.OrderBy(x => x.Value_ID).ThenBy(x => x.Language_ID).ToList();
                 address.defaultLanguageID = db.Languages.FirstOrDefault().ID;
                 address.languages = db.Languages.Where(x => x.ID != db.Languages.FirstOrDefault().ID);

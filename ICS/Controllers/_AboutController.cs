@@ -20,12 +20,12 @@ namespace ICS.Controllers
         private ICSDBContext db = new ICSDBContext();
         private CustomMethods customMethods = new CustomMethods();
         private Encryption hash = new Encryption();
+        private AboutAdminMerge about = new AboutAdminMerge();
 
         private AboutAdminMerge aboutAdmin
         {
             get
             {
-                AboutAdminMerge about = new AboutAdminMerge();
                 about.abouts = db.About_Translate.OrderBy(x => x.Value_ID).ThenBy(x => x.Language_ID).ToList();
                 about.defaultLanguageID = db.Languages.FirstOrDefault().ID;
                 about.languages = db.Languages.Where(x => x.ID != db.Languages.FirstOrDefault().ID);

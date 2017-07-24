@@ -15,12 +15,12 @@ namespace ICS.Controllers
         private ICSDBContext db = new ICSDBContext();
         private CustomMethods customMethods = new CustomMethods();
         private Encryption hash = new Encryption();
+        private StepAdminMerge step = new StepAdminMerge();
 
         private StepAdminMerge stepAdmin
         {
             get
             {
-                StepAdminMerge step = new StepAdminMerge();
                 step.steps = db.Steps_Translate.OrderBy(x => x.Value_ID).ThenBy(x => x.Language_ID).ToList();
                 step.defaultLanguageID = db.Languages.FirstOrDefault().ID;
                 step.languages = db.Languages.Where(x => x.ID != db.Languages.FirstOrDefault().ID);

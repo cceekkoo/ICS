@@ -15,12 +15,12 @@ namespace ICS.Controllers
         private ICSDBContext db = new ICSDBContext();
         private CustomMethods customMethods = new CustomMethods();
         private Encryption hash = new Encryption();
+        private SocialAdminMerge socials = new SocialAdminMerge();
 
         private SocialAdminMerge socialAdmin
         {
             get
             {
-                SocialAdminMerge socials = new SocialAdminMerge();
                 socials.socials = db.Socials.ToList();
                 return socials;
             }

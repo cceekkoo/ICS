@@ -10,12 +10,12 @@ namespace ICS.Controllers
     public class _ContactController : Controller
     {
         private ICSDBContext db = new ICSDBContext();
+        private ContactAdminMerge contacts = new ContactAdminMerge();
 
         private ContactAdminMerge contactAdmin
         {
             get
             {
-                ContactAdminMerge contacts = new ContactAdminMerge();
                 contacts.contacts = db.Contacts.ToList();
                 return contacts;
             }

@@ -15,12 +15,12 @@ namespace ICS.Controllers
         private ICSDBContext db = new ICSDBContext();
         private CustomMethods customMethods = new CustomMethods();
         private Encryption hash = new Encryption();
+        private LanguageAdminMerge language = new LanguageAdminMerge();
 
         private LanguageAdminMerge languageAdmin
         {
             get
             {
-                LanguageAdminMerge language = new LanguageAdminMerge();
                 language.languages = db.Languages.ToList();
                 return language;
             }

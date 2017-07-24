@@ -10,12 +10,12 @@ namespace ICS.Controllers
     public class _MenuController : Controller
     {
         private ICSDBContext db = new ICSDBContext();
+        private MenuAdminMerge menu = new MenuAdminMerge();
 
         private MenuAdminMerge menuAdmin
         {
             get
             {
-                MenuAdminMerge menu = new MenuAdminMerge();
                 menu.menus = db.Menus_Translate.OrderBy(x => x.Value_ID).ThenBy(x => x.Language_ID).ToList();
                 menu.defaultLanguageID = db.Languages.FirstOrDefault().ID;
                 menu.languages = db.Languages.Where(x => x.ID != db.Languages.FirstOrDefault().ID);

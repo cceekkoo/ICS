@@ -15,12 +15,12 @@ namespace ICS.Controllers
         private ICSDBContext db = new ICSDBContext();
         private CustomMethods customMethods = new CustomMethods();
         private Encryption hash = new Encryption();
+        private SlideAdminMerge slide = new SlideAdminMerge();
 
         private SlideAdminMerge slideAdmin
         {
             get
             {
-                SlideAdminMerge slide = new SlideAdminMerge();
                 slide.slides = db.Slide_Translate.OrderBy(x => x.Value_ID).ThenBy(x => x.Language_ID).ToList();
                 slide.defaultLanguageID = db.Languages.FirstOrDefault().ID;
                 slide.languages = db.Languages.Where(x => x.ID != db.Languages.FirstOrDefault().ID);

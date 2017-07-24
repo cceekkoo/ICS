@@ -11,12 +11,12 @@ namespace ICS.Controllers
     public class _SendEmailToController : Controller
     {
         private ICSDBContext db = new ICSDBContext();
+        private SendEmailToAdminMerge sendEmailTos = new SendEmailToAdminMerge();
 
         private SendEmailToAdminMerge sendEmailToAdmin
         {
             get
             {
-                SendEmailToAdminMerge sendEmailTos = new SendEmailToAdminMerge();
                 sendEmailTos.sendEmailToes = db.SendEmailToes.ToList();
                 return sendEmailTos;
             }
@@ -50,6 +50,7 @@ namespace ICS.Controllers
                     return RedirectToAction("Index");
                 }
                 ViewBag.ShowModal = "AddModal";
+                sendEmailToAdmin.sendEmailTo = sendEmailTo;
                 return View("Index", sendEmailToAdmin);
             }
             catch

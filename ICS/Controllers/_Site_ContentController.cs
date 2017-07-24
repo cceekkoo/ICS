@@ -9,12 +9,12 @@ namespace ICS.Controllers
     public class _Site_ContentController : Controller
     {
         private ICSDBContext db = new ICSDBContext();
+        private Site_ContentsAdminMerge site_Content = new Site_ContentsAdminMerge();
 
         private Site_ContentsAdminMerge site_ContentAdmin
         {
             get
             {
-                Site_ContentsAdminMerge site_Content = new Site_ContentsAdminMerge();
                 site_Content.site_Contents = db.Site_Contents.OrderBy(x => x.Value_ID).ThenBy(x => x.Language_ID).ToList();
                 site_Content.defaultLanguageID = db.Languages.FirstOrDefault().ID;
                 site_Content.languages = db.Languages.Where(x => x.ID != db.Languages.FirstOrDefault().ID);

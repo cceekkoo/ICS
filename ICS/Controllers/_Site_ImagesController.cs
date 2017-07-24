@@ -15,12 +15,12 @@ namespace ICS.Controllers
         private ICSDBContext db = new ICSDBContext();
         private CustomMethods customMethods = new CustomMethods();
         private Encryption hash = new Encryption();
+        private Site_ImagesAdminMerge site_Images = new Site_ImagesAdminMerge();
 
         private Site_ImagesAdminMerge site_ImagesAdmin
         {
             get
             {
-                Site_ImagesAdminMerge site_Images = new Site_ImagesAdminMerge();
                 site_Images.site_Images = db.Site_Images.ToList();
                 return site_Images;
             }
